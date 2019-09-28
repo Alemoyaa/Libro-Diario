@@ -20,3 +20,4 @@ C:\Users\AleMo\source\repos\Libro-Diario\ProgramaContable\obj\Debug\ProgramaCont
 C:\Users\AleMo\source\repos\Libro-Diario\ProgramaContable\bin\Debug\ProgramaContable.exe.config
 C:\Users\AleMo\source\repos\Libro-Diario\ProgramaContable\bin\Debug\ProgramaContable.exe
 C:\Users\AleMo\source\repos\Libro-Diario\ProgramaContable\bin\Debug\ProgramaContable.pdb
+C:\Users\AleMo\source\repos\Libro-Diario\ProgramaContable\obj\Debug\ProgramaContable.TotalActual.resources

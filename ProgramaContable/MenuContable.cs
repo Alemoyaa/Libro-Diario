@@ -19,8 +19,14 @@ namespace ProgramaContable
 
         private void Button1_Click(object sender, EventArgs e)
         {
-            LibroDiario l = new LibroDiario();
-            l.Visible = true;
+            LibroDiario libroDiario = new LibroDiario();
+            libroDiario.Visible = true;
+        }
+
+        private void Button4_Click(object sender, EventArgs e)
+        {
+            TotalActual totalCuenta = new TotalActual();
+            totalCuenta.Visible = true;
         }
     }
 }

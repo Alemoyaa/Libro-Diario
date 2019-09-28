@@ -30,20 +30,17 @@
         {
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
-            this.txtTotalAbono = new System.Windows.Forms.TextBox();
-            this.txtTotalCargo = new System.Windows.Forms.TextBox();
             this.gpboxAgregar = new System.Windows.Forms.GroupBox();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.cmbCuentas = new System.Windows.Forms.ComboBox();
             this.btnAgregar = new System.Windows.Forms.Button();
-            this.txtCargo = new System.Windows.Forms.TextBox();
-            this.txtAbono = new System.Windows.Forms.TextBox();
+            this.txtDebe = new System.Windows.Forms.TextBox();
+            this.txtHaber = new System.Windows.Forms.TextBox();
             this.dgvData = new System.Windows.Forms.DataGridView();
             this.btnAceptar = new System.Windows.Forms.Button();
             this.btnCancelar = new System.Windows.Forms.Button();
-            this.Fecha = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colNumero = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colFecha = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colCuenta = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colCargo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colAbono = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -51,53 +48,13 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvData)).BeginInit();
             this.SuspendLayout();
             // 
-            // label2
-            // 
-            this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(481, 303);
-            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(63, 13);
-            this.label2.TabIndex = 29;
-            this.label2.Text = "Haber Total";
-            // 
-            // label1
-            // 
-            this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(484, 277);
-            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(60, 13);
-            this.label1.TabIndex = 28;
-            this.label1.Text = "Debe Total";
-            // 
-            // txtTotalAbono
-            // 
-            this.txtTotalAbono.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtTotalAbono.Location = new System.Drawing.Point(573, 301);
-            this.txtTotalAbono.Margin = new System.Windows.Forms.Padding(1, 2, 2, 2);
-            this.txtTotalAbono.Name = "txtTotalAbono";
-            this.txtTotalAbono.Size = new System.Drawing.Size(167, 20);
-            this.txtTotalAbono.TabIndex = 27;
-            // 
-            // txtTotalCargo
-            // 
-            this.txtTotalCargo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtTotalCargo.Location = new System.Drawing.Point(574, 275);
-            this.txtTotalCargo.Margin = new System.Windows.Forms.Padding(2, 2, 1, 2);
-            this.txtTotalCargo.Name = "txtTotalCargo";
-            this.txtTotalCargo.Size = new System.Drawing.Size(167, 20);
-            this.txtTotalCargo.TabIndex = 26;
-            // 
             // gpboxAgregar
             // 
             this.gpboxAgregar.Controls.Add(this.dateTimePicker1);
             this.gpboxAgregar.Controls.Add(this.cmbCuentas);
             this.gpboxAgregar.Controls.Add(this.btnAgregar);
-            this.gpboxAgregar.Controls.Add(this.txtCargo);
-            this.gpboxAgregar.Controls.Add(this.txtAbono);
+            this.gpboxAgregar.Controls.Add(this.txtDebe);
+            this.gpboxAgregar.Controls.Add(this.txtHaber);
             this.gpboxAgregar.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gpboxAgregar.Location = new System.Drawing.Point(9, 25);
             this.gpboxAgregar.Margin = new System.Windows.Forms.Padding(2);
@@ -143,23 +100,23 @@
             this.btnAgregar.UseVisualStyleBackColor = false;
             this.btnAgregar.Click += new System.EventHandler(this.BtnAgregar_Click);
             // 
-            // txtCargo
+            // txtDebe
             // 
-            this.txtCargo.Location = new System.Drawing.Point(382, 24);
-            this.txtCargo.Margin = new System.Windows.Forms.Padding(2);
-            this.txtCargo.Name = "txtCargo";
-            this.txtCargo.Size = new System.Drawing.Size(116, 23);
-            this.txtCargo.TabIndex = 1;
-            this.txtCargo.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.txtDebe.Location = new System.Drawing.Point(382, 24);
+            this.txtDebe.Margin = new System.Windows.Forms.Padding(2);
+            this.txtDebe.Name = "txtDebe";
+            this.txtDebe.Size = new System.Drawing.Size(116, 23);
+            this.txtDebe.TabIndex = 1;
+            this.txtDebe.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
-            // txtAbono
+            // txtHaber
             // 
-            this.txtAbono.Location = new System.Drawing.Point(502, 24);
-            this.txtAbono.Margin = new System.Windows.Forms.Padding(2);
-            this.txtAbono.Name = "txtAbono";
-            this.txtAbono.Size = new System.Drawing.Size(116, 23);
-            this.txtAbono.TabIndex = 2;
-            this.txtAbono.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.txtHaber.Location = new System.Drawing.Point(502, 24);
+            this.txtHaber.Margin = new System.Windows.Forms.Padding(2);
+            this.txtHaber.Name = "txtHaber";
+            this.txtHaber.Size = new System.Drawing.Size(116, 23);
+            this.txtHaber.TabIndex = 2;
+            this.txtHaber.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // dgvData
             // 
@@ -171,7 +128,8 @@
             this.dgvData.BackgroundColor = System.Drawing.Color.Gainsboro;
             this.dgvData.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvData.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Fecha,
+            this.colNumero,
+            this.colFecha,
             this.colCuenta,
             this.colCargo,
             this.colAbono});
@@ -213,10 +171,15 @@
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.UseVisualStyleBackColor = false;
             // 
-            // Fecha
+            // colNumero
             // 
-            this.Fecha.HeaderText = "Fecha";
-            this.Fecha.Name = "Fecha";
+            this.colNumero.HeaderText = "Indice";
+            this.colNumero.Name = "colNumero";
+            // 
+            // colFecha
+            // 
+            this.colFecha.HeaderText = "Fecha";
+            this.colFecha.Name = "colFecha";
             // 
             // colCuenta
             // 
@@ -247,10 +210,6 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(749, 389);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.txtTotalAbono);
-            this.Controls.Add(this.txtTotalCargo);
             this.Controls.Add(this.gpboxAgregar);
             this.Controls.Add(this.dgvData);
             this.Controls.Add(this.btnAceptar);
@@ -266,21 +225,17 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox txtTotalAbono;
-        private System.Windows.Forms.TextBox txtTotalCargo;
         private System.Windows.Forms.GroupBox gpboxAgregar;
         private System.Windows.Forms.ComboBox cmbCuentas;
-        public System.Windows.Forms.Button btnAgregar;
-        private System.Windows.Forms.TextBox txtCargo;
-        private System.Windows.Forms.TextBox txtAbono;
+        private System.Windows.Forms.TextBox txtDebe;
+        private System.Windows.Forms.TextBox txtHaber;
         private System.Windows.Forms.DataGridView dgvData;
         public System.Windows.Forms.Button btnAceptar;
         public System.Windows.Forms.Button btnCancelar;
         private System.Windows.Forms.DateTimePicker dateTimePicker1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Fecha;
+        private System.Windows.Forms.Button btnAgregar;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colNumero;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colFecha;
         private System.Windows.Forms.DataGridViewTextBoxColumn colCuenta;
         private System.Windows.Forms.DataGridViewTextBoxColumn colCargo;
         private System.Windows.Forms.DataGridViewTextBoxColumn colAbono;
