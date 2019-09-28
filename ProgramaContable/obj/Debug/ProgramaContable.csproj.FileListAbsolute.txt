@@ -9,3 +9,14 @@ C:\Users\AleMo\source\repos\ProgramaContable\obj\Debug\ProgramaContable.csproj.G
 C:\Users\AleMo\source\repos\ProgramaContable\obj\Debug\ProgramaContable.csproj.CoreCompileInputs.cache
 C:\Users\AleMo\source\repos\ProgramaContable\obj\Debug\ProgramaContable.exe
 C:\Users\AleMo\source\repos\ProgramaContable\obj\Debug\ProgramaContable.pdb
+C:\Users\AleMo\source\repos\Libro-Diario\ProgramaContable\obj\Debug\ProgramaContable.csprojAssemblyReference.cache
+C:\Users\AleMo\source\repos\Libro-Diario\ProgramaContable\obj\Debug\ProgramaContable.LibroDiario.resources
+C:\Users\AleMo\source\repos\Libro-Diario\ProgramaContable\obj\Debug\ProgramaContable.MenuContable.resources
+C:\Users\AleMo\source\repos\Libro-Diario\ProgramaContable\obj\Debug\ProgramaContable.Properties.Resources.resources
+C:\Users\AleMo\source\repos\Libro-Diario\ProgramaContable\obj\Debug\ProgramaContable.csproj.GenerateResource.cache
+C:\Users\AleMo\source\repos\Libro-Diario\ProgramaContable\obj\Debug\ProgramaContable.csproj.CoreCompileInputs.cache
+C:\Users\AleMo\source\repos\Libro-Diario\ProgramaContable\obj\Debug\ProgramaContable.exe
+C:\Users\AleMo\source\repos\Libro-Diario\ProgramaContable\obj\Debug\ProgramaContable.pdb
+C:\Users\AleMo\source\repos\Libro-Diario\ProgramaContable\bin\Debug\ProgramaContable.exe.config
+C:\Users\AleMo\source\repos\Libro-Diario\ProgramaContable\bin\Debug\ProgramaContable.exe
+C:\Users\AleMo\source\repos\Libro-Diario\ProgramaContable\bin\Debug\ProgramaContable.pdb
