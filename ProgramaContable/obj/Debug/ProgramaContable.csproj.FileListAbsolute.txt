@@ -14,7 +14,6 @@ C:\Users\AleMo\source\repos\Libro-Diario\ProgramaContable\obj\Debug\ProgramaCont
 C:\Users\AleMo\source\repos\Libro-Diario\ProgramaContable\obj\Debug\ProgramaContable.MenuContable.resources
 C:\Users\AleMo\source\repos\Libro-Diario\ProgramaContable\obj\Debug\ProgramaContable.Properties.Resources.resources
 C:\Users\AleMo\source\repos\Libro-Diario\ProgramaContable\obj\Debug\ProgramaContable.csproj.GenerateResource.cache
-C:\Users\AleMo\source\repos\Libro-Diario\ProgramaContable\obj\Debug\ProgramaContable.csproj.CoreCompileInputs.cache
 C:\Users\AleMo\source\repos\Libro-Diario\ProgramaContable\obj\Debug\ProgramaContable.exe
 C:\Users\AleMo\source\repos\Libro-Diario\ProgramaContable\obj\Debug\ProgramaContable.pdb
 C:\Users\AleMo\source\repos\Libro-Diario\ProgramaContable\bin\Debug\ProgramaContable.exe.config
