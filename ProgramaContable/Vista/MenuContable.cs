@@ -67,5 +67,11 @@ namespace ProgramaContable
                 MessageBox.Show(ex.Message);
             }
         }
+
+        private void BLibroMayor_Click(object sender, EventArgs e)
+        {
+            Vista.AgregarCuenta agregar = new Vista.AgregarCuenta();
+            agregar.Visible = true;
+        }
     }
 }

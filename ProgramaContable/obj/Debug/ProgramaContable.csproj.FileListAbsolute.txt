@@ -19,7 +19,6 @@ C:\Users\AleMo\source\repos\Libro-Diario\ProgramaContable\obj\Debug\ProgramaCont
 C:\Users\AleMo\source\repos\Libro-Diario\ProgramaContable\bin\Debug\ProgramaContable.exe.config
 C:\Users\AleMo\source\repos\Libro-Diario\ProgramaContable\bin\Debug\ProgramaContable.exe
 C:\Users\AleMo\source\repos\Libro-Diario\ProgramaContable\bin\Debug\ProgramaContable.pdb
-C:\Users\AleMo\source\repos\Libro-Diario\ProgramaContable\obj\Debug\ProgramaContable.TotalActual.resources
 D:\Git Repository Windows\Libro-Diario\ProgramaContable\bin\Debug\ProgramaContable.exe.config
 D:\Git Repository Windows\Libro-Diario\ProgramaContable\bin\Debug\ProgramaContable.exe
 D:\Git Repository Windows\Libro-Diario\ProgramaContable\bin\Debug\ProgramaContable.pdb
@@ -54,3 +53,9 @@ C:\Users\AleMo\Desktop\Libro-Diario-master\Libro-Diario-master\ProgramaContable\
 C:\Users\AleMo\Desktop\Libro-Diario-master\Libro-Diario-master\ProgramaContable\obj\Debug\ProgramaContable.csproj.CopyComplete
 C:\Users\AleMo\Desktop\Libro-Diario-master\Libro-Diario-master\ProgramaContable\obj\Debug\ProgramaContable.exe
 C:\Users\AleMo\Desktop\Libro-Diario-master\Libro-Diario-master\ProgramaContable\obj\Debug\ProgramaContable.pdb
+C:\Users\AleMo\source\repos\Libro-Diario\ProgramaContable\obj\Debug\ProgramaContable.Vista.PlanCuentas.resources
+C:\Users\AleMo\source\repos\Libro-Diario\ProgramaContable\bin\Debug\Google.Protobuf.dll
+C:\Users\AleMo\source\repos\Libro-Diario\ProgramaContable\bin\Debug\BouncyCastle.Crypto.dll
+C:\Users\AleMo\source\repos\Libro-Diario\ProgramaContable\bin\Debug\Renci.SshNet.dll
+C:\Users\AleMo\source\repos\Libro-Diario\ProgramaContable\bin\Debug\MySql.Data.xml
+C:\Users\AleMo\source\repos\Libro-Diario\ProgramaContable\obj\Debug\ProgramaContable.csproj.CopyComplete

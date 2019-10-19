@@ -55,6 +55,12 @@
     <Compile Include="Modelo\Cuenta.cs" />
     <Compile Include="Modelo\Movimiento.cs" />
     <Compile Include="Modelo\TipodeCuenta.cs" />
+    <Compile Include="Vista\AgregarCuenta.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Vista\AgregarCuenta.Designer.cs">
+      <DependentUpon>AgregarCuenta.cs</DependentUpon>
+    </Compile>
     <Compile Include="Vista\LibroDiario.cs">
       <SubType>Form</SubType>
     </Compile>
