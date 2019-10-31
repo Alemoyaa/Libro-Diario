@@ -1,0 +1,43 @@
+C:\Users\AleMo\source\repos\ProgramaContable\bin\Debug\ProgramaContable.exe.config
+C:\Users\AleMo\source\repos\ProgramaContable\bin\Debug\ProgramaContable.exe
+C:\Users\AleMo\source\repos\ProgramaContable\bin\Debug\ProgramaContable.pdb
+C:\Users\AleMo\source\repos\ProgramaContable\obj\Debug\ProgramaContable.csprojAssemblyReference.cache
+C:\Users\AleMo\source\repos\ProgramaContable\obj\Debug\ProgramaContable.LibroDiario.resources
+C:\Users\AleMo\source\repos\ProgramaContable\obj\Debug\ProgramaContable.MenuContable.resources
+C:\Users\AleMo\source\repos\ProgramaContable\obj\Debug\ProgramaContable.Properties.Resources.resources
+C:\Users\AleMo\source\repos\ProgramaContable\obj\Debug\ProgramaContable.csproj.GenerateResource.cache
+C:\Users\AleMo\source\repos\ProgramaContable\obj\Debug\ProgramaContable.csproj.CoreCompileInputs.cache
+C:\Users\AleMo\source\repos\ProgramaContable\obj\Debug\ProgramaContable.exe
+C:\Users\AleMo\source\repos\ProgramaContable\obj\Debug\ProgramaContable.pdb
+C:\Users\AleMo\source\repos\Libro-Diario\ProgramaContable\obj\Debug\ProgramaContable.csprojAssemblyReference.cache
+C:\Users\AleMo\source\repos\Libro-Diario\ProgramaContable\obj\Debug\ProgramaContable.LibroDiario.resources
+C:\Users\AleMo\source\repos\Libro-Diario\ProgramaContable\obj\Debug\ProgramaContable.MenuContable.resources
+C:\Users\AleMo\source\repos\Libro-Diario\ProgramaContable\obj\Debug\ProgramaContable.Properties.Resources.resources
+C:\Users\AleMo\source\repos\Libro-Diario\ProgramaContable\obj\Debug\ProgramaContable.csproj.GenerateResource.cache
+C:\Users\AleMo\source\repos\Libro-Diario\ProgramaContable\obj\Debug\ProgramaContable.exe
+C:\Users\AleMo\source\repos\Libro-Diario\ProgramaContable\obj\Debug\ProgramaContable.pdb
+C:\Users\AleMo\source\repos\Libro-Diario\ProgramaContable\bin\Debug\ProgramaContable.exe.config
+C:\Users\AleMo\source\repos\Libro-Diario\ProgramaContable\bin\Debug\ProgramaContable.exe
+C:\Users\AleMo\source\repos\Libro-Diario\ProgramaContable\bin\Debug\ProgramaContable.pdb
+C:\Users\AleMo\source\repos\Libro-Diario\ProgramaContable\obj\Debug\ProgramaContable.TotalActual.resources
+D:\Git Repository Windows\Libro-Diario\ProgramaContable\bin\Debug\ProgramaContable.exe.config
+D:\Git Repository Windows\Libro-Diario\ProgramaContable\bin\Debug\ProgramaContable.exe
+D:\Git Repository Windows\Libro-Diario\ProgramaContable\bin\Debug\ProgramaContable.pdb
+D:\Git Repository Windows\Libro-Diario\ProgramaContable\obj\Debug\ProgramaContable.csprojAssemblyReference.cache
+D:\Git Repository Windows\Libro-Diario\ProgramaContable\obj\Debug\ProgramaContable.MenuContable.resources
+D:\Git Repository Windows\Libro-Diario\ProgramaContable\obj\Debug\ProgramaContable.Properties.Resources.resources
+D:\Git Repository Windows\Libro-Diario\ProgramaContable\obj\Debug\ProgramaContable.csproj.GenerateResource.cache
+D:\Git Repository Windows\Libro-Diario\ProgramaContable\obj\Debug\ProgramaContable.csproj.CoreCompileInputs.cache
+D:\Git Repository Windows\Libro-Diario\ProgramaContable\obj\Debug\ProgramaContable.exe
+D:\Git Repository Windows\Libro-Diario\ProgramaContable\obj\Debug\ProgramaContable.pdb
+D:\Git Repository Windows\Libro-Diario\ProgramaContable\bin\Debug\MySql.Data.dll
+D:\Git Repository Windows\Libro-Diario\ProgramaContable\bin\Debug\Google.Protobuf.dll
+D:\Git Repository Windows\Libro-Diario\ProgramaContable\bin\Debug\BouncyCastle.Crypto.dll
+D:\Git Repository Windows\Libro-Diario\ProgramaContable\bin\Debug\Renci.SshNet.dll
+D:\Git Repository Windows\Libro-Diario\ProgramaContable\bin\Debug\MySql.Data.xml
+D:\Git Repository Windows\Libro-Diario\ProgramaContable\obj\Debug\ProgramaContable.csproj.CopyComplete
+D:\Git Repository Windows\Libro-Diario\ProgramaContable\obj\Debug\ProgramaContable.Vista.LibroDiario.resources
+D:\Git Repository Windows\Libro-Diario\ProgramaContable\obj\Debug\ProgramaContable.Vista.VerAsiento.resources
+D:\Git Repository Windows\Libro-Diario\ProgramaContable\obj\Debug\ProgramaContable.Vista.VerMovimiento.resources
+D:\Git Repository Windows\Libro-Diario\ProgramaContable\obj\Debug\ProgramaContable.Vista.LibroMayor.resources
+D:\Git Repository Windows\Libro-Diario\ProgramaContable\obj\Debug\ProgramaContable.Vista.VerLibroMayor.resources
