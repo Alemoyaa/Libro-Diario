@@ -32,7 +32,6 @@
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.BotonTodosMes = new System.Windows.Forms.Button();
             this.BotonFechaS = new System.Windows.Forms.Button();
-            this.BotonHoy = new System.Windows.Forms.Button();
             this.groupBoxAsientos = new System.Windows.Forms.GroupBox();
             this.botonVolver = new System.Windows.Forms.Button();
             this.botonAgregar = new System.Windows.Forms.Button();
@@ -51,7 +50,6 @@
             this.groupBoxBusqueda.Controls.Add(this.dateTimePicker1);
             this.groupBoxBusqueda.Controls.Add(this.BotonTodosMes);
             this.groupBoxBusqueda.Controls.Add(this.BotonFechaS);
-            this.groupBoxBusqueda.Controls.Add(this.BotonHoy);
             this.groupBoxBusqueda.Location = new System.Drawing.Point(13, 26);
             this.groupBoxBusqueda.Name = "groupBoxBusqueda";
             this.groupBoxBusqueda.Size = new System.Drawing.Size(750, 65);
@@ -83,15 +81,7 @@
             this.BotonFechaS.TabIndex = 4;
             this.BotonFechaS.Text = "Mostrar Fecha";
             this.BotonFechaS.UseVisualStyleBackColor = true;
-            // 
-            // BotonHoy
-            // 
-            this.BotonHoy.Location = new System.Drawing.Point(384, 17);
-            this.BotonHoy.Name = "BotonHoy";
-            this.BotonHoy.Size = new System.Drawing.Size(75, 23);
-            this.BotonHoy.TabIndex = 3;
-            this.BotonHoy.Text = "Hoy";
-            this.BotonHoy.UseVisualStyleBackColor = true;
+            this.BotonFechaS.Click += new System.EventHandler(this.BotonFechaS_Click);
             // 
             // groupBoxAsientos
             // 
@@ -190,7 +180,6 @@
 
         private System.Windows.Forms.GroupBox groupBoxBusqueda;
         private System.Windows.Forms.Button BotonFechaS;
-        private System.Windows.Forms.Button BotonHoy;
         private System.Windows.Forms.Button BotonTodosMes;
         private System.Windows.Forms.DateTimePicker dateTimePicker1;
         private System.Windows.Forms.GroupBox groupBoxAsientos;

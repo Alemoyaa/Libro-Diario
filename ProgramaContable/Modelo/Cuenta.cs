@@ -178,5 +178,6 @@ namespace ProgramaContable.Modelo
                 MessageBox.Show(ex.Message);
             }
         }
+
     }
 }

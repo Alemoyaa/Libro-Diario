@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ProgramaContable.Controlador;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,12 +13,16 @@ namespace ProgramaContable.Vista
 {
     public partial class LibroDiario : Form
     {
-        private static Form menuAnterior;
-        public LibroDiario(Form vista)
+        private static ControladorLibroDiario controlador;
+        public static ControladorLibroDiario Controlador { get => controlador; set => controlador = value; }
+
+        public LibroDiario(ControladorLibroDiario control)
         {
-            menuAnterior = vista;
+            Controlador = control;
             InitializeComponent();
         }
+
+        
 
         private void botonAgregar_Click(object sender, EventArgs e)
         {
@@ -30,6 +35,11 @@ namespace ProgramaContable.Vista
         {
             menuAnterior.Visible = true;
             this.Dispose();
+        }
+
+        private void BotonFechaS_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

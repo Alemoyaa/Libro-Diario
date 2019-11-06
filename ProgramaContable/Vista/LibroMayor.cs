@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ProgramaContable.Controlador;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,10 +13,12 @@ namespace ProgramaContable.Vista
 {
     public partial class LibroMayor : Form
     {
-        private static Form menuAnterior;
-        public LibroMayor(Form menu)
+        private static ControladorLibroMayor controlador;
+        public static ControladorLibroMayor Controlador { get => controlador; set => controlador = value; }
+
+        public LibroMayor(ControladorLibroMayor control)
         {
-            menuAnterior = menu;
+            Controlador = control;
             InitializeComponent();
         }
 

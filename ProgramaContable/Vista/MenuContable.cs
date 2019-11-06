@@ -9,7 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-using ProgramaContable.Modelo;
+using ProgramaContable.Controlador;
 using ProgramaContable.Vista;
 
 namespace ProgramaContable
@@ -23,20 +23,13 @@ namespace ProgramaContable
 
         private void BotonLibroDiario_Click(object sender, EventArgs e)
         {
-            //List<Cuenta> lista = ListarCuentas(new TipodeCuenta(2,"Pasivo"));
-            //foreach (var Cuenta in lista)
-            //{
-            //    Console.WriteLine("ID: " + Cuenta.IdCuenta + " Cuenta: " + Cuenta.NombreCuenta + " Tipo de Cuenta: " + Cuenta.Tipocuenta.DescripcionTipo);
-            //}
-            LibroDiario libroDiario = new LibroDiario(this);
-            libroDiario.Visible = true;
+            ControladorLibroDiario controlador = new ControladorLibroDiario(this);
             this.Visible = false;
         }
 
         private void botonLibroMayor_Click(object sender, EventArgs e)
         {
-            LibroMayor libroMayor = new LibroMayor(this);
-            libroMayor.Visible = true;
+            ControladorLibroMayor controlador = new ControladorLibroMayor(this);
             this.Visible = false;
         }
     }
