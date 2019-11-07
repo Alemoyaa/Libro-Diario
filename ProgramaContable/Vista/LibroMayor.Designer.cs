@@ -30,16 +30,16 @@
         {
             this.labelTipoDeCuenta = new System.Windows.Forms.Label();
             this.labelNombreDeCuenta = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
+            this.comboBoxTipo = new System.Windows.Forms.ComboBox();
+            this.comboBoxNombre = new System.Windows.Forms.ComboBox();
             this.groupBoxLibroMayor = new System.Windows.Forms.GroupBox();
-            this.botonVerCuenta = new System.Windows.Forms.Button();
-            this.botonVerTipoCuenta = new System.Windows.Forms.Button();
-            this.botonVerTodo = new System.Windows.Forms.Button();
-            this.botonCancelar = new System.Windows.Forms.Button();
+            this.comboBoxAnio = new System.Windows.Forms.ComboBox();
+            this.comboBoxMes = new System.Windows.Forms.ComboBox();
             this.labelMesyAnio = new System.Windows.Forms.Label();
-            this.comboBox3 = new System.Windows.Forms.ComboBox();
-            this.comboBox4 = new System.Windows.Forms.ComboBox();
+            this.botonCancelar = new System.Windows.Forms.Button();
+            this.botonVerTodo = new System.Windows.Forms.Button();
+            this.botonVerTipoCuenta = new System.Windows.Forms.Button();
+            this.botonVerCuenta = new System.Windows.Forms.Button();
             this.groupBoxLibroMayor.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -63,34 +63,35 @@
             this.labelNombreDeCuenta.TabIndex = 1;
             this.labelNombreDeCuenta.Text = "Seleccione el Nombre de Cuenta:";
             // 
-            // comboBox1
+            // comboBoxTipo
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(294, 40);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(196, 21);
-            this.comboBox1.TabIndex = 2;
+            this.comboBoxTipo.FormattingEnabled = true;
+            this.comboBoxTipo.Location = new System.Drawing.Point(294, 40);
+            this.comboBoxTipo.Name = "comboBoxTipo";
+            this.comboBoxTipo.Size = new System.Drawing.Size(196, 21);
+            this.comboBoxTipo.TabIndex = 2;
+            this.comboBoxTipo.SelectedIndexChanged += new System.EventHandler(this.comboBoxTipo_SelectedIndexChanged);
             // 
-            // comboBox2
+            // comboBoxNombre
             // 
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(294, 80);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(196, 21);
-            this.comboBox2.TabIndex = 3;
+            this.comboBoxNombre.FormattingEnabled = true;
+            this.comboBoxNombre.Location = new System.Drawing.Point(294, 80);
+            this.comboBoxNombre.Name = "comboBoxNombre";
+            this.comboBoxNombre.Size = new System.Drawing.Size(196, 21);
+            this.comboBoxNombre.TabIndex = 3;
             // 
             // groupBoxLibroMayor
             // 
-            this.groupBoxLibroMayor.Controls.Add(this.comboBox4);
-            this.groupBoxLibroMayor.Controls.Add(this.comboBox3);
+            this.groupBoxLibroMayor.Controls.Add(this.comboBoxAnio);
+            this.groupBoxLibroMayor.Controls.Add(this.comboBoxMes);
             this.groupBoxLibroMayor.Controls.Add(this.labelMesyAnio);
             this.groupBoxLibroMayor.Controls.Add(this.botonCancelar);
             this.groupBoxLibroMayor.Controls.Add(this.botonVerTodo);
             this.groupBoxLibroMayor.Controls.Add(this.botonVerTipoCuenta);
             this.groupBoxLibroMayor.Controls.Add(this.botonVerCuenta);
             this.groupBoxLibroMayor.Controls.Add(this.labelTipoDeCuenta);
-            this.groupBoxLibroMayor.Controls.Add(this.comboBox2);
-            this.groupBoxLibroMayor.Controls.Add(this.comboBox1);
+            this.groupBoxLibroMayor.Controls.Add(this.comboBoxNombre);
+            this.groupBoxLibroMayor.Controls.Add(this.comboBoxTipo);
             this.groupBoxLibroMayor.Controls.Add(this.labelNombreDeCuenta);
             this.groupBoxLibroMayor.Location = new System.Drawing.Point(23, 12);
             this.groupBoxLibroMayor.Name = "groupBoxLibroMayor";
@@ -99,45 +100,66 @@
             this.groupBoxLibroMayor.TabStop = false;
             this.groupBoxLibroMayor.Text = "Ver Libro Mayor";
             // 
-            // botonVerCuenta
+            // comboBoxAnio
             // 
-            this.botonVerCuenta.Location = new System.Drawing.Point(97, 172);
-            this.botonVerCuenta.Name = "botonVerCuenta";
-            this.botonVerCuenta.Size = new System.Drawing.Size(89, 23);
-            this.botonVerCuenta.TabIndex = 4;
-            this.botonVerCuenta.Text = "Ver Cuenta";
-            this.botonVerCuenta.UseVisualStyleBackColor = true;
-            this.botonVerCuenta.Click += new System.EventHandler(this.botonVerCuenta_Click);
+            this.comboBoxAnio.FormattingEnabled = true;
+            this.comboBoxAnio.Items.AddRange(new object[] {
+            "1990",
+            "1991",
+            "1992",
+            "1993",
+            "1994",
+            "1995",
+            "1996",
+            "1997",
+            "1998",
+            "1999",
+            "2000",
+            "2001",
+            "2002",
+            "2003",
+            "2004",
+            "2005",
+            "2006",
+            "2007",
+            "2008",
+            "2009",
+            "2010",
+            "2011",
+            "2012",
+            "2013",
+            "2014",
+            "2015",
+            "2016",
+            "2017",
+            "2018",
+            "2019",
+            "2020"});
+            this.comboBoxAnio.Location = new System.Drawing.Point(294, 120);
+            this.comboBoxAnio.Name = "comboBoxAnio";
+            this.comboBoxAnio.Size = new System.Drawing.Size(80, 21);
+            this.comboBoxAnio.TabIndex = 10;
             // 
-            // botonVerTipoCuenta
+            // comboBoxMes
             // 
-            this.botonVerTipoCuenta.Location = new System.Drawing.Point(224, 172);
-            this.botonVerTipoCuenta.Name = "botonVerTipoCuenta";
-            this.botonVerTipoCuenta.Size = new System.Drawing.Size(107, 23);
-            this.botonVerTipoCuenta.TabIndex = 5;
-            this.botonVerTipoCuenta.Text = "Ver Tipo de Cuenta";
-            this.botonVerTipoCuenta.UseVisualStyleBackColor = true;
-            this.botonVerTipoCuenta.Click += new System.EventHandler(this.botonVerTipoCuenta_Click);
-            // 
-            // botonVerTodo
-            // 
-            this.botonVerTodo.Location = new System.Drawing.Point(365, 172);
-            this.botonVerTodo.Name = "botonVerTodo";
-            this.botonVerTodo.Size = new System.Drawing.Size(136, 23);
-            this.botonVerTodo.TabIndex = 6;
-            this.botonVerTodo.Text = "Ver Todas las Cuentas";
-            this.botonVerTodo.UseVisualStyleBackColor = true;
-            this.botonVerTodo.Click += new System.EventHandler(this.botonVerTodo_Click);
-            // 
-            // botonCancelar
-            // 
-            this.botonCancelar.Location = new System.Drawing.Point(426, 211);
-            this.botonCancelar.Name = "botonCancelar";
-            this.botonCancelar.Size = new System.Drawing.Size(75, 23);
-            this.botonCancelar.TabIndex = 7;
-            this.botonCancelar.Text = "Cancelar";
-            this.botonCancelar.UseVisualStyleBackColor = true;
-            this.botonCancelar.Click += new System.EventHandler(this.botonCancelar_Click);
+            this.comboBoxMes.FormattingEnabled = true;
+            this.comboBoxMes.Items.AddRange(new object[] {
+            "01",
+            "02",
+            "03",
+            "04",
+            "05",
+            "06",
+            "07",
+            "08",
+            "09",
+            "10",
+            "11",
+            "12"});
+            this.comboBoxMes.Location = new System.Drawing.Point(215, 120);
+            this.comboBoxMes.Name = "comboBoxMes";
+            this.comboBoxMes.Size = new System.Drawing.Size(47, 21);
+            this.comboBoxMes.TabIndex = 9;
             // 
             // labelMesyAnio
             // 
@@ -149,21 +171,45 @@
             this.labelMesyAnio.TabIndex = 8;
             this.labelMesyAnio.Text = "Seleccione Mes y Año:";
             // 
-            // comboBox3
+            // botonCancelar
             // 
-            this.comboBox3.FormattingEnabled = true;
-            this.comboBox3.Location = new System.Drawing.Point(215, 120);
-            this.comboBox3.Name = "comboBox3";
-            this.comboBox3.Size = new System.Drawing.Size(47, 21);
-            this.comboBox3.TabIndex = 9;
+            this.botonCancelar.Location = new System.Drawing.Point(426, 211);
+            this.botonCancelar.Name = "botonCancelar";
+            this.botonCancelar.Size = new System.Drawing.Size(75, 23);
+            this.botonCancelar.TabIndex = 7;
+            this.botonCancelar.Text = "Cancelar";
+            this.botonCancelar.UseVisualStyleBackColor = true;
+            this.botonCancelar.Click += new System.EventHandler(this.botonCancelar_Click);
             // 
-            // comboBox4
+            // botonVerTodo
             // 
-            this.comboBox4.FormattingEnabled = true;
-            this.comboBox4.Location = new System.Drawing.Point(294, 120);
-            this.comboBox4.Name = "comboBox4";
-            this.comboBox4.Size = new System.Drawing.Size(80, 21);
-            this.comboBox4.TabIndex = 10;
+            this.botonVerTodo.Location = new System.Drawing.Point(365, 172);
+            this.botonVerTodo.Name = "botonVerTodo";
+            this.botonVerTodo.Size = new System.Drawing.Size(136, 23);
+            this.botonVerTodo.TabIndex = 6;
+            this.botonVerTodo.Text = "Ver Todas las Cuentas";
+            this.botonVerTodo.UseVisualStyleBackColor = true;
+            this.botonVerTodo.Click += new System.EventHandler(this.botonVerTodo_Click);
+            // 
+            // botonVerTipoCuenta
+            // 
+            this.botonVerTipoCuenta.Location = new System.Drawing.Point(224, 172);
+            this.botonVerTipoCuenta.Name = "botonVerTipoCuenta";
+            this.botonVerTipoCuenta.Size = new System.Drawing.Size(107, 23);
+            this.botonVerTipoCuenta.TabIndex = 5;
+            this.botonVerTipoCuenta.Text = "Ver Tipo de Cuenta";
+            this.botonVerTipoCuenta.UseVisualStyleBackColor = true;
+            this.botonVerTipoCuenta.Click += new System.EventHandler(this.botonVerTipoCuenta_Click);
+            // 
+            // botonVerCuenta
+            // 
+            this.botonVerCuenta.Location = new System.Drawing.Point(97, 172);
+            this.botonVerCuenta.Name = "botonVerCuenta";
+            this.botonVerCuenta.Size = new System.Drawing.Size(89, 23);
+            this.botonVerCuenta.TabIndex = 4;
+            this.botonVerCuenta.Text = "Ver Cuenta";
+            this.botonVerCuenta.UseVisualStyleBackColor = true;
+            this.botonVerCuenta.Click += new System.EventHandler(this.botonVerCuenta_Click);
             // 
             // LibroMayor
             // 
@@ -173,6 +219,7 @@
             this.Controls.Add(this.groupBoxLibroMayor);
             this.Name = "LibroMayor";
             this.Text = "LibroMayor";
+            //this.Load += new System.EventHandler(this.LibroMayor_Load);
             this.groupBoxLibroMayor.ResumeLayout(false);
             this.groupBoxLibroMayor.PerformLayout();
             this.ResumeLayout(false);
@@ -183,15 +230,15 @@
 
         private System.Windows.Forms.Label labelTipoDeCuenta;
         private System.Windows.Forms.Label labelNombreDeCuenta;
-        private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.ComboBox comboBox2;
+        private System.Windows.Forms.ComboBox comboBoxTipo;
+        private System.Windows.Forms.ComboBox comboBoxNombre;
         private System.Windows.Forms.GroupBox groupBoxLibroMayor;
         private System.Windows.Forms.Button botonCancelar;
         private System.Windows.Forms.Button botonVerTodo;
         private System.Windows.Forms.Button botonVerTipoCuenta;
         private System.Windows.Forms.Button botonVerCuenta;
-        private System.Windows.Forms.ComboBox comboBox4;
-        private System.Windows.Forms.ComboBox comboBox3;
+        private System.Windows.Forms.ComboBox comboBoxAnio;
+        private System.Windows.Forms.ComboBox comboBoxMes;
         private System.Windows.Forms.Label labelMesyAnio;
     }
 }

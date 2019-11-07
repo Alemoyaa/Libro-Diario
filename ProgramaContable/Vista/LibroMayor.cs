@@ -1,4 +1,5 @@
 ﻿using ProgramaContable.Controlador;
+using ProgramaContable.Modelo;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -45,5 +46,44 @@ namespace ProgramaContable.Vista
             VerLibroMayor verlibro = new VerLibroMayor();
             verlibro.Visible = true;
         }
+
+        private void LibroMayor_Load(object sender, EventArgs e)
+        {
+            setearComboBoxTipo();
+            setearComboBoxNombre();
+            comboBoxTipo.SelectedIndex = 0;
+            comboBoxNombre.SelectedIndex = 0;
+        }
+
+        private void setearComboBoxTipo()
+        {
+            TipodeCuenta tp = new TipodeCuenta();
+            List<TipodeCuenta> lista = tp.TraerTipos();
+            foreach (TipodeCuenta i in lista)
+            {
+                this.comboBoxTipo.Items.Add(new ComboBoxItem(i.DescripcionTipo,i.Id));
+            }
+        }
+        private void setearComboBoxNombre()
+        {
+            List<Cuenta> lista = Cuenta.ListarCuentas(1);
+            foreach (Cuenta i in lista)
+            {
+                this.comboBoxNombre.Items.Add(new ComboBoxItem(i.NombreCuenta, i.IdCuenta));
+            }
+        }
+
+        private void comboBoxTipo_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            comboBoxNombre.Items.Clear();
+            int hValue = ((ComboBoxItem)comboBoxTipo.SelectedItem).HiddenValue;
+            List<Cuenta> lista = Cuenta.ListarCuentas(hValue);
+            foreach (Cuenta i in lista)
+            {
+                this.comboBoxNombre.Items.Add(new ComboBoxItem(i.NombreCuenta, i.IdCuenta));
+            }
+        }
+
+
     }
 }

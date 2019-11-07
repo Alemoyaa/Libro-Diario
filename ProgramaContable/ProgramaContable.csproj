@@ -57,6 +57,7 @@
     <Compile Include="Controlador\ControladorVerLibroMayor.cs" />
     <Compile Include="Controlador\ControladorVerMovimiento.cs" />
     <Compile Include="Modelo\Asiento.cs" />
+    <Compile Include="Modelo\ComboBoxItem.cs" />
     <Compile Include="Modelo\Cuenta.cs" />
     <Compile Include="Modelo\Movimiento.cs" />
     <Compile Include="Modelo\TipodeCuenta.cs" />
