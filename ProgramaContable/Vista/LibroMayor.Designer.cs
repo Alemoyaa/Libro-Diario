@@ -133,8 +133,7 @@
             "2016",
             "2017",
             "2018",
-            "2019",
-            "2020"});
+            "2019"});
             this.comboBoxAnio.Location = new System.Drawing.Point(294, 120);
             this.comboBoxAnio.Name = "comboBoxAnio";
             this.comboBoxAnio.Size = new System.Drawing.Size(80, 21);
@@ -219,7 +218,7 @@
             this.Controls.Add(this.groupBoxLibroMayor);
             this.Name = "LibroMayor";
             this.Text = "LibroMayor";
-            //this.Load += new System.EventHandler(this.LibroMayor_Load);
+            this.Load += new System.EventHandler(this.LibroMayor_Load);
             this.groupBoxLibroMayor.ResumeLayout(false);
             this.groupBoxLibroMayor.PerformLayout();
             this.ResumeLayout(false);

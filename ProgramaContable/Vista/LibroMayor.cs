@@ -53,6 +53,8 @@ namespace ProgramaContable.Vista
             setearComboBoxNombre();
             comboBoxTipo.SelectedIndex = 0;
             comboBoxNombre.SelectedIndex = 0;
+            comboBoxMes.SelectedIndex = 0;
+            comboBoxAnio.SelectedIndex = comboBoxAnio.Items.Count-1;
         }
 
         private void setearComboBoxTipo()
@@ -82,8 +84,10 @@ namespace ProgramaContable.Vista
             {
                 this.comboBoxNombre.Items.Add(new ComboBoxItem(i.NombreCuenta, i.IdCuenta));
             }
+            comboBoxNombre.SelectedIndex = 0;
+
         }
 
-
+        
     }
 }

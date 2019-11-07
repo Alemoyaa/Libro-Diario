@@ -23,7 +23,6 @@ C:\Users\AleMo\source\repos\Libro-Diario\ProgramaContable\obj\Debug\ProgramaCont
 D:\Git Repository Windows\Libro-Diario\ProgramaContable\bin\Debug\ProgramaContable.exe.config
 D:\Git Repository Windows\Libro-Diario\ProgramaContable\bin\Debug\ProgramaContable.exe
 D:\Git Repository Windows\Libro-Diario\ProgramaContable\bin\Debug\ProgramaContable.pdb
-D:\Git Repository Windows\Libro-Diario\ProgramaContable\obj\Debug\ProgramaContable.csprojAssemblyReference.cache
 D:\Git Repository Windows\Libro-Diario\ProgramaContable\obj\Debug\ProgramaContable.MenuContable.resources
 D:\Git Repository Windows\Libro-Diario\ProgramaContable\obj\Debug\ProgramaContable.Properties.Resources.resources
 D:\Git Repository Windows\Libro-Diario\ProgramaContable\obj\Debug\ProgramaContable.csproj.GenerateResource.cache
@@ -41,3 +40,4 @@ D:\Git Repository Windows\Libro-Diario\ProgramaContable\obj\Debug\ProgramaContab
 D:\Git Repository Windows\Libro-Diario\ProgramaContable\obj\Debug\ProgramaContable.Vista.VerMovimiento.resources
 D:\Git Repository Windows\Libro-Diario\ProgramaContable\obj\Debug\ProgramaContable.Vista.LibroMayor.resources
 D:\Git Repository Windows\Libro-Diario\ProgramaContable\obj\Debug\ProgramaContable.Vista.VerLibroMayor.resources
+D:\Git Repository Windows\Libro-Diario\ProgramaContable\obj\Debug\ProgramaContable.csprojAssemblyReference.cache
