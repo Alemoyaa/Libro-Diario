@@ -31,11 +31,15 @@ namespace ProgramaContable.Modelo
             Debe_haber = debehaber;
         }
         
+        public Movimiento()
+        {
+
+        }
         //Crear movimiento 
         private void CrearMovimiento(int idasiento, int idcuenta, int valor, bool debe)
         {
             string connectionString = "datasource=127.0.0.1;port=3306;username=root;password=;database=librodiario;";
-            string query = "INSERT INTO movimiento(asiento_id,cuenta_id,valor,debeohaber) VALUES(" + idasiento + ", " + idcuenta + ", " + valor + ", " + doh + ")";
+            string query = "INSERT INTO movimiento(asiento_id,cuenta_id,valor,debeohaber) VALUES(" + idasiento + ", " + idcuenta + ", " + valor + ", " + debe + ")";
 
             MySqlConnection databaseConnection = new MySqlConnection(connectionString);
             MySqlCommand commandDatabase = new MySqlCommand(query, databaseConnection);
@@ -81,7 +85,7 @@ namespace ProgramaContable.Modelo
         }
         private List<Movimiento> ListarMovimientos(int idasiento)
         {
-            List<Cuenta> listademovimientos = new List<Movimiento>();
+            List<Movimiento> listademovimientos = new List<Movimiento>();
             string connectionString = "datasource=127.0.0.1;port=3306;username=root;password=;database=librodiario;";
             string query = "SELECT * FROM movimiento m, asiento a, cuenta c WHERE (m.asiento_id = a.id_asiento AND m.asiento_id = "+idasiento+")"; 
 
@@ -108,7 +112,8 @@ namespace ProgramaContable.Modelo
                         asiento.Descripcion_asiento = reader.GetString(3);
                         cuenta.IdCuenta = reader.GetInt32(4);
                         cuenta.NombreCuenta = reader.GetString(5);
-                        cuenta.Tipocuenta = reader.GetInt32(6);
+                        cuenta.Tipocuenta = new TipodeCuenta();
+                        cuenta.Tipocuenta.Id = reader.GetInt32(6);
                         movimiento.Asiento = asiento;
                         movimiento.Cuenta = cuenta;
                         movimiento.Id = reader.GetInt32(7);

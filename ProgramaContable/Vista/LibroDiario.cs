@@ -33,8 +33,7 @@ namespace ProgramaContable.Vista
 
         private void botonVolver_Click(object sender, EventArgs e)
         {
-            menuAnterior.Visible = true;
-            this.Dispose();
+            Controlador.Volver();
         }
 
         private void BotonFechaS_Click(object sender, EventArgs e)

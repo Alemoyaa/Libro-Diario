@@ -20,5 +20,11 @@ namespace ProgramaContable.Controlador
             vistaLibroMayor.Visible = true;
         }
 
+        public void Volver()
+        {
+            vistaAnterior.Visible = true;
+            vistaLibroMayor.Dispose();
+
+        }
     }
 }

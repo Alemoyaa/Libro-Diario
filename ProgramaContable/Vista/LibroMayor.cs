@@ -24,7 +24,7 @@ namespace ProgramaContable.Vista
 
         private void botonCancelar_Click(object sender, EventArgs e)
         {
-            menuAnterior.Visible = true;
+            controlador.Volver();
             this.Dispose();
         }
 

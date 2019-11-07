@@ -91,21 +91,21 @@ namespace ProgramaContable.Modelo
                     while (reader.Read())
                     {
                         Asiento asiento = new Asiento();
-                        asiento.Id = reader.GetInt32(0)
+                        asiento.Id = reader.GetInt32(0);
                         asiento.Numero_asiento = reader.GetInt32(1);
-                        asiento.Fecha_asiento = reader.GetDateTime(2);
+                        asiento.Fecha_asiento = reader.GetDateTime(2).ToShortDateString();
                         asiento.Descripcion_asiento = reader.GetString(3);
-                        listadeasiento.Add(asiento);
+                        listadeasientos.Add(asiento);
                     }
                 }
 
                 databaseConnection.Close();
-                return listadeasiento;
+                return listadeasientos;
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
-                return listadeasiento;
+                return listadeasientos;
             }
         }
         private List<Asiento> ListarAsientosporMes(int mes, int anio)
@@ -131,26 +131,26 @@ namespace ProgramaContable.Modelo
                     while (reader.Read())
                     {
                         Asiento asiento = new Asiento();
-                        asiento.Id = reader.GetInt32(0)
+                        asiento.Id = reader.GetInt32(0);
                         asiento.Numero_asiento = reader.GetInt32(1);
-                        asiento.Fecha_asiento = reader.GetDateTime(2);
+                        asiento.Fecha_asiento = reader.GetDateTime(2).ToShortDateString();
                         asiento.Descripcion_asiento = reader.GetString(3);
-                        listadeasiento.Add(asiento);
+                        listadeasientos.Add(asiento);
                     }
                 }
 
                 databaseConnection.Close();
-                return listadeasiento;
+                return listadeasientos;
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
-                return listadeasiento;
+                return listadeasientos;
             }
         }
         private string[] Convertirmesanio(int mes, int anio)
         {
-            string[] resultado;
+            string[] resultado = new string[2];
             resultado[0] = "'" + anio + "-" + mes + "-" + "01'";
             resultado[1] = "'" + anio + "-" + mes+1 + "-" + "01'";
             return resultado;

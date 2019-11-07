@@ -23,6 +23,7 @@ namespace ProgramaContable
 
         private void BotonLibroDiario_Click(object sender, EventArgs e)
         {
+
             ControladorLibroDiario controlador = new ControladorLibroDiario(this);
             this.Visible = false;
         }
