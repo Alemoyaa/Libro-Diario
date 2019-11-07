@@ -51,14 +51,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Controlador\ControladorLibroDiario.cs" />
-    <Compile Include="Controlador\ControladorLibroMayor.cs" />
-    <Compile Include="Controlador\ControladorVerAsiento.cs" />
-    <Compile Include="Controlador\ControladorVerLibroMayor.cs" />
-    <Compile Include="Controlador\ControladorVerMovimiento.cs" />
     <Compile Include="Modelo\Asiento.cs" />
     <Compile Include="Modelo\ComboBoxItem.cs" />
     <Compile Include="Modelo\Cuenta.cs" />
+    <Compile Include="Modelo\MoviCuenta.cs" />
     <Compile Include="Modelo\Movimiento.cs" />
     <Compile Include="Modelo\TipodeCuenta.cs" />
     <Compile Include="Vista\LibroDiario.cs">
@@ -140,8 +136,6 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Datos\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

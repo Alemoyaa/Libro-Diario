@@ -29,7 +29,7 @@ namespace ProgramaContable.Modelo
         {
         }
 
-        private List<Asiento> ListarAsientos()
+        public static List<Asiento> ListarAsientos()
         {
             List<Asiento> listadeasiento = new List<Asiento>();
             string connectionString = "datasource=127.0.0.1;port=3306;username=root;password=;database=librodiario;";
@@ -69,7 +69,7 @@ namespace ProgramaContable.Modelo
                 return listadeasiento;
             }
         }
-        private List<Asiento> ListarAsientosporFecha(string fecha)
+        public static List<Asiento> ListarAsientosporFecha(string fecha)
         {
             List<Asiento> listadeasientos = new List<Asiento>();
             string connectionString = "datasource=127.0.0.1;port=3306;username=root;password=;database=librodiario;";
@@ -108,14 +108,14 @@ namespace ProgramaContable.Modelo
                 return listadeasientos;
             }
         }
-        private List<Asiento> ListarAsientosporMes(int mes, int anio)
+        public static List<Asiento> ListarAsientosporMes(int mes, int anio)
         {
             List<Asiento> listadeasientos = new List<Asiento>();
             string connectionString = "datasource=127.0.0.1;port=3306;username=root;password=;database=librodiario;";
             string[] fechas = Convertirmesanio(mes, anio);
             string query = "SELECT * FROM asiento a WHERE (a.fecha_asiento >= '" + fechas[0] + "' AND a.fecha_asiento < '" + fechas[1] + "')";
 
-
+            
             MySqlConnection databaseConnection = new MySqlConnection(connectionString);
             MySqlCommand commandDatabase = new MySqlCommand(query, databaseConnection);
             commandDatabase.CommandTimeout = 60;
@@ -148,14 +148,23 @@ namespace ProgramaContable.Modelo
                 return listadeasientos;
             }
         }
-        private string[] Convertirmesanio(int mes, int anio)
+        public static string[] Convertirmesanio(int mes, int anio)
         {
             string[] resultado = new string[2];
-            resultado[0] = "'" + anio + "-" + mes + "-" + "01'";
-            resultado[1] = "'" + anio + "-" + mes+1 + "-" + "01'";
+            if (mes == 12)
+            {
+                resultado[0] = anio + "-" + mes + "-" + "01";
+                resultado[1] = anio + 1 + "-01-01";
+            }
+            else
+            {
+                resultado[0] = anio + "-" + mes + "-" + "01";
+                resultado[1] = anio + "-" + mes + 1 + "-" + "01";
+            }
+
             return resultado;
         }
-        private void CrearAsiento(int numero, string fecha, string descr)
+        public static void CrearAsiento(int numero, string fecha, string descr)
         {
 
             string connectionString = "datasource=127.0.0.1;port=3306;username=root;password=;database=librodiario;";
@@ -179,7 +188,7 @@ namespace ProgramaContable.Modelo
                 MessageBox.Show(ex.Message);
             }
         }
-        private void UpdateAsiento(int idasiento, int numero, string fecha, string descr)
+        public static void UpdateAsiento(int idasiento, int numero, string fecha, string descr)
         {
             string connectionString = "datasource=127.0.0.1;port=3306;username=root;password=;database=librodiario;";
             string query = "UPDATE asiento SET descr_asiento='" + descr + "', numero_asiento=" + numero + ", fecha_asiento='"+ fecha +"' WHERE id_asiento = " + idasiento;
@@ -204,7 +213,7 @@ namespace ProgramaContable.Modelo
                 MessageBox.Show(ex.Message);
             }
         }
-        private void borrarAsiento(int idasiento)
+        public static void borrarAsiento(int idasiento)
         {
             string connectionString = "datasource=127.0.0.1;port=3306;username=root;password=;database=librodiario;";
             string query = "DELETE FROM asiento WHERE id_asiento = " + idasiento;
@@ -226,7 +235,6 @@ namespace ProgramaContable.Modelo
                 MessageBox.Show(ex.Message);
             }
         }
-
 
     }
 }

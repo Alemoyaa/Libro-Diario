@@ -8,8 +8,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-
-using ProgramaContable.Controlador;
 using ProgramaContable.Vista;
 
 namespace ProgramaContable
@@ -23,14 +21,15 @@ namespace ProgramaContable
 
         private void BotonLibroDiario_Click(object sender, EventArgs e)
         {
-
-            ControladorLibroDiario controlador = new ControladorLibroDiario(this);
+            LibroDiario vistaLB = new LibroDiario(this);
+            vistaLB.Visible = true;
             this.Visible = false;
         }
 
         private void botonLibroMayor_Click(object sender, EventArgs e)
         {
-            ControladorLibroMayor controlador = new ControladorLibroMayor(this);
+            LibroMayor vistaLM = new LibroMayor(this);
+            vistaLM.Visible = true;
             this.Visible = false;
         }
     }

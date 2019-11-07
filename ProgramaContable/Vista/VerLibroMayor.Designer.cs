@@ -28,17 +28,18 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.textBoxMayores = new System.Windows.Forms.TextBox();
             this.botonVolver = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // textBox1
+            // textBoxMayores
             // 
-            this.textBox1.Location = new System.Drawing.Point(40, 31);
-            this.textBox1.Multiline = true;
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(666, 300);
-            this.textBox1.TabIndex = 0;
+            this.textBoxMayores.Location = new System.Drawing.Point(40, 31);
+            this.textBoxMayores.Multiline = true;
+            this.textBoxMayores.Name = "textBoxMayores";
+            this.textBoxMayores.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.textBoxMayores.Size = new System.Drawing.Size(666, 300);
+            this.textBoxMayores.TabIndex = 0;
             // 
             // botonVolver
             // 
@@ -56,7 +57,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(740, 396);
             this.Controls.Add(this.botonVolver);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.textBoxMayores);
             this.Name = "VerLibroMayor";
             this.Text = "VerLibroMayor";
             this.ResumeLayout(false);
@@ -66,7 +67,7 @@
 
         #endregion
 
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox textBoxMayores;
         private System.Windows.Forms.Button botonVolver;
     }
 }

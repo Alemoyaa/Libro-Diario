@@ -88,13 +88,13 @@
             this.radioButtonHaber.Name = "radioButtonHaber";
             this.radioButtonHaber.Size = new System.Drawing.Size(54, 17);
             this.radioButtonHaber.TabIndex = 7;
-            this.radioButtonHaber.TabStop = true;
             this.radioButtonHaber.Text = "Haber";
             this.radioButtonHaber.UseVisualStyleBackColor = true;
             // 
             // radioButtonDebe
             // 
             this.radioButtonDebe.AutoSize = true;
+            this.radioButtonDebe.Checked = true;
             this.radioButtonDebe.Location = new System.Drawing.Point(163, 165);
             this.radioButtonDebe.Name = "radioButtonDebe";
             this.radioButtonDebe.Size = new System.Drawing.Size(51, 17);

@@ -25,7 +25,7 @@ namespace ProgramaContable.Modelo
         {
 
         }
-        public TipodeCuenta TraerTipoPorID(int idtipo)
+        public static TipodeCuenta TraerTipoPorID(int idtipo)
         {
             TipodeCuenta resultado = new TipodeCuenta();
             string connectionString = "datasource=127.0.0.1;port=3306;username=root;password=;database=librodiario;";
@@ -59,7 +59,7 @@ namespace ProgramaContable.Modelo
                 return resultado;
             }
         }
-        public List<TipodeCuenta> TraerTipos()
+        public static List<TipodeCuenta> TraerTipos()
         {
             List<TipodeCuenta> listadetipos = new List<TipodeCuenta>();
             string connectionString = "datasource=127.0.0.1;port=3306;username=root;password=;database=librodiario;";
@@ -93,7 +93,7 @@ namespace ProgramaContable.Modelo
                 return listadetipos;
             }
         }
-        public void CrearTipo(string descrtipo)
+        public static void CrearTipo(string descrtipo)
         {
             string connectionString = "datasource=127.0.0.1;port=3306;username=root;password=;database=librodiario;";
             string query = "INSERT INTO tipocuenta(descr_tipocuenta) VALUES('" + descrtipo + "')";
@@ -117,7 +117,7 @@ namespace ProgramaContable.Modelo
                 MessageBox.Show(ex.Message);
             }
         }
-        public void UpdateTipoCuenta(int idtipodecuenta, string descr_tipo)
+        public static void UpdateTipoCuenta(int idtipodecuenta, string descr_tipo)
         {
             string connectionString = "datasource=127.0.0.1;port=3306;username=root;password=;database=librodiario;";
             string query = "UPDATE tipocuenta SET descr_tipocuenta='" + descr_tipo + "' WHERE id_tipocuenta = " + idtipodecuenta;
@@ -142,7 +142,7 @@ namespace ProgramaContable.Modelo
                 MessageBox.Show(ex.Message);
             }
         }
-        public void borrarTipoCuenta(int idtipocuenta)
+        public static void borrarTipoCuenta(int idtipocuenta)
         {
             string connectionString = "datasource=127.0.0.1;port=3306;username=root;password=;database=librodiario;";
             string query = "DELETE FROM tipocuenta WHERE id_tipocuenta = " + idtipocuenta;
@@ -164,7 +164,6 @@ namespace ProgramaContable.Modelo
                 MessageBox.Show(ex.Message);
             }
         }
-
 
     }
 

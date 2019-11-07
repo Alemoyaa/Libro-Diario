@@ -1,5 +1,4 @@
-﻿using ProgramaContable.Controlador;
-using ProgramaContable.Modelo;
+﻿using ProgramaContable.Modelo;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -14,37 +13,43 @@ namespace ProgramaContable.Vista
 {
     public partial class LibroMayor : Form
     {
-        private static ControladorLibroMayor controlador;
-        public static ControladorLibroMayor Controlador { get => controlador; set => controlador = value; }
+        private Form vistaAnterior;
 
-        public LibroMayor(ControladorLibroMayor control)
+        public Form VistaAnterior { get => vistaAnterior; set => vistaAnterior = value; }
+
+        public LibroMayor(Form vistaAnterior)
         {
-            Controlador = control;
+            VistaAnterior = vistaAnterior;
             InitializeComponent();
         }
 
         private void botonCancelar_Click(object sender, EventArgs e)
         {
-            controlador.Volver();
+            VistaAnterior.Visible = true;
             this.Dispose();
         }
 
         private void botonVerCuenta_Click(object sender, EventArgs e)
         {
-            VerLibroMayor verlibro = new VerLibroMayor();
-            verlibro.Visible = true;
+            int hValue = ((ComboBoxItem)comboBoxNombre.SelectedItem).HiddenValue;
+            int mes = Convert.ToInt32(comboBoxMes.SelectedItem);
+            int anio = Convert.ToInt32(comboBoxAnio.SelectedItem);
+            VerLibroMayor verlibro = new VerLibroMayor(true, mes, anio, hValue);
         }
 
         private void botonVerTipoCuenta_Click(object sender, EventArgs e)
         {
-            VerLibroMayor verlibro = new VerLibroMayor();
-            verlibro.Visible = true;
+            int hValue = ((ComboBoxItem)comboBoxTipo.SelectedItem).HiddenValue;
+            int mes = Convert.ToInt32(comboBoxMes.SelectedItem);
+            int anio = Convert.ToInt32(comboBoxAnio.SelectedItem);
+            VerLibroMayor verlibro = new VerLibroMayor(false, mes, anio, hValue);
         }
 
         private void botonVerTodo_Click(object sender, EventArgs e)
         {
-            VerLibroMayor verlibro = new VerLibroMayor();
-            verlibro.Visible = true;
+            int mes = Convert.ToInt32(comboBoxMes.SelectedItem);
+            int anio = Convert.ToInt32(comboBoxAnio.SelectedItem);
+            VerLibroMayor verlibro = new VerLibroMayor(mes, anio);
         }
 
         private void LibroMayor_Load(object sender, EventArgs e)
@@ -59,8 +64,7 @@ namespace ProgramaContable.Vista
 
         private void setearComboBoxTipo()
         {
-            TipodeCuenta tp = new TipodeCuenta();
-            List<TipodeCuenta> lista = tp.TraerTipos();
+            List<TipodeCuenta> lista = TipodeCuenta.TraerTipos();
             foreach (TipodeCuenta i in lista)
             {
                 this.comboBoxTipo.Items.Add(new ComboBoxItem(i.DescripcionTipo,i.Id));
@@ -85,7 +89,6 @@ namespace ProgramaContable.Vista
                 this.comboBoxNombre.Items.Add(new ComboBoxItem(i.NombreCuenta, i.IdCuenta));
             }
             comboBoxNombre.SelectedIndex = 0;
-
         }
 
         

@@ -30,13 +30,11 @@ namespace ProgramaContable.Modelo
             Valor = valor;
             Debe_haber = debehaber;
         }
-        
         public Movimiento()
         {
 
         }
-        //Crear movimiento 
-        private void CrearMovimiento(int idasiento, int idcuenta, int valor, bool debe)
+        public static void CrearMovimiento(int idasiento, int idcuenta, int valor, bool debe)
         {
             string connectionString = "datasource=127.0.0.1;port=3306;username=root;password=;database=librodiario;";
             string query = "INSERT INTO movimiento(asiento_id,cuenta_id,valor,debeohaber) VALUES(" + idasiento + ", " + idcuenta + ", " + valor + ", " + debe + ")";
@@ -57,8 +55,7 @@ namespace ProgramaContable.Modelo
                 MessageBox.Show(ex.Message);
             }
         }
-        //Actualizar movimiento utilizando Idmovimiento
-        private void UpdateMovimiento(int idmovimiento, int idasiento, int idcuenta, int valor, bool debe)
+        public static void UpdateMovimiento(int idmovimiento, int idasiento, int idcuenta, int valor, bool debe)
         {
             string connectionString = "datasource=127.0.0.1;port=3306;username=root;password=;database=librodiario;";
             string query =
@@ -83,11 +80,11 @@ namespace ProgramaContable.Modelo
                 MessageBox.Show(ex.Message);
             }
         }
-        private List<Movimiento> ListarMovimientos(int idasiento)
+        public static List<Movimiento> ListarMovimientos(int idasiento)
         {
             List<Movimiento> listademovimientos = new List<Movimiento>();
             string connectionString = "datasource=127.0.0.1;port=3306;username=root;password=;database=librodiario;";
-            string query = "SELECT * FROM movimiento m, asiento a, cuenta c WHERE (m.asiento_id = a.id_asiento AND m.asiento_id = "+idasiento+")"; 
+            string query = "SELECT * FROM movimiento m, asiento a, cuentas c WHERE (m.asiento_id = a.id_asiento AND m.asiento_id = "+idasiento+")"; 
 
             MySqlConnection databaseConnection = new MySqlConnection(connectionString);
             MySqlCommand commandDatabase = new MySqlCommand(query, databaseConnection);
@@ -132,7 +129,157 @@ namespace ProgramaContable.Modelo
                 return listademovimientos;
             }
         }
-        private void borrarMovimiento(int idmovimiento)
+        public static List<Movimiento> ListarMovimientos(int mes, int anio, int idcuenta)
+        {
+            List<Movimiento> listademovimientos = new List<Movimiento>();
+            string connectionString = "datasource=127.0.0.1;port=3306;username=root;password=;database=librodiario;";
+            string[] fechas = Convertirmesanio(mes, anio);
+            string query = "SELECT m.id_movimiento, m.valor, m.debeohaber, c.nombre_cuenta FROM movimiento m, asiento a, cuentas c WHERE (m.asiento_id = a.id_asiento AND m.cuenta_id = c.id_cuenta AND c.id_cuenta = " + idcuenta+" AND a.fecha_asiento >= '"+fechas[0]+"' AND a.fecha_asiento < '"+fechas[1]+"')";
+
+            MySqlConnection databaseConnection = new MySqlConnection(connectionString);
+            MySqlCommand commandDatabase = new MySqlCommand(query, databaseConnection);
+            commandDatabase.CommandTimeout = 60;
+            MySqlDataReader reader;
+
+            try
+            {
+                databaseConnection.Open();
+                reader = commandDatabase.ExecuteReader();
+
+                if (reader.HasRows)
+                {
+                    while (reader.Read())
+                    {
+                        Movimiento movimiento = new Movimiento();
+                        movimiento.Id = reader.GetInt32(0);
+                        movimiento.Valor = reader.GetFloat(1);
+                        movimiento.Debe_haber = reader.GetBoolean(2);
+                        movimiento.Cuenta = new Cuenta();
+                        movimiento.Cuenta.NombreCuenta = reader.GetString(3);
+                        listademovimientos.Add(movimiento);
+                    }
+                }
+
+                databaseConnection.Close();
+                return listademovimientos;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                return listademovimientos;
+            }
+        }
+        public static List<Movimiento> ListarMovimientosTipo(int mes, int anio, int idtipo)
+        {
+            List<Movimiento> listademovimientos = new List<Movimiento>();
+            string connectionString = "datasource=127.0.0.1;port=3306;username=root;password=;database=librodiario;";
+            string[] fechas = Convertirmesanio(mes, anio);
+            string query = "SELECT m.id_movimiento, m.valor, m.debeohaber, c.nombre_cuenta " +
+                "FROM movimiento m, asiento a, cuentas c, tipocuenta t WHERE (m.asiento_id = a.id_asiento AND m.cuenta_id = c.id_cuenta AND c.tipocuenta_id = t.id_tipocuenta AND t.id_tipocuenta = "+idtipo+" AND a.fecha_asiento >= '"+fechas[0]+"' AND a.fecha_asiento < '"+fechas[1]+"')";
+
+            MySqlConnection databaseConnection = new MySqlConnection(connectionString);
+            MySqlCommand commandDatabase = new MySqlCommand(query, databaseConnection);
+            commandDatabase.CommandTimeout = 60;
+            MySqlDataReader reader;
+
+            try
+            {
+                databaseConnection.Open();
+                reader = commandDatabase.ExecuteReader();
+
+                if (reader.HasRows)
+                {
+                    while (reader.Read())
+                    {
+                        Movimiento movimiento = new Movimiento();
+                        movimiento.Id = reader.GetInt32(0);
+                        movimiento.Valor = reader.GetFloat(1);
+                        movimiento.Debe_haber = reader.GetBoolean(2);
+                        movimiento.Cuenta = new Cuenta();
+                        movimiento.Cuenta.NombreCuenta = reader.GetString(3);
+                        listademovimientos.Add(movimiento);
+                    }
+                }
+
+                databaseConnection.Close();
+                return listademovimientos;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                return listademovimientos;
+            }
+        }
+        public static List<Movimiento> ListarMovimientosFecha(int mes, int anio)
+        {
+            List<Movimiento> listademovimientos = new List<Movimiento>();
+            string connectionString = "datasource=127.0.0.1;port=3306;username=root;password=;database=librodiario;";
+            string[] fechas = Convertirmesanio(mes, anio);
+            string query = "SELECT m.id_movimiento, m.valor, m.debeohaber, c.nombre_cuenta " +
+                "FROM movimiento m, asiento a, cuentas c WHERE (m.asiento_id = a.id_asiento AND m.cuenta_id = c.id_cuenta AND a.fecha_asiento >= '" + fechas[0] + "' AND a.fecha_asiento < '" + fechas[1] + "')";
+            MySqlConnection databaseConnection = new MySqlConnection(connectionString);
+            MySqlCommand commandDatabase = new MySqlCommand(query, databaseConnection);
+            commandDatabase.CommandTimeout = 60;
+            MySqlDataReader reader;
+
+            try
+            {
+                databaseConnection.Open();
+                reader = commandDatabase.ExecuteReader();
+
+                if (reader.HasRows)
+                {
+                    while (reader.Read())
+                    {
+                        Movimiento movimiento = new Movimiento();
+                        movimiento.Id = reader.GetInt32(0);
+                        movimiento.Valor = reader.GetFloat(1);
+                        movimiento.Debe_haber = reader.GetBoolean(2);
+                        movimiento.Cuenta = new Cuenta();
+                        movimiento.Cuenta.NombreCuenta = reader.GetString(3);
+                        listademovimientos.Add(movimiento);
+                    }
+                }
+
+                databaseConnection.Close();
+                return listademovimientos;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                return listademovimientos;
+            }
+        }
+        public static string[] Convertirmesanio(int mes, int anio)
+        {
+            string[] resultado = new string[2];
+            if (mes == 12)
+            {
+                resultado[0] = anio + "-" + mes + "-" + "01";
+                resultado[1] = anio+1 + "-01-01";
+            }
+            else if(mes >=1 && mes < 9)
+            {
+                resultado[0] = anio + "-" + 0+mes + "-" + "01";
+                mes = mes+1;
+                resultado[1] = anio + "-" + 0+mes + "-" + "01";
+            }
+            else if (mes == 9)
+            {
+                resultado[0] = anio + "-" + 0 + mes + "-" + "01";
+                resultado[1] = anio + "-10-01";
+            }
+            else
+            {
+                resultado[0] = anio + "-" + mes + "-" + "01";
+                mes = mes + 1;
+                resultado[1] = anio + "-" + mes+  "-" + "01";
+            }
+            
+            return resultado;
+        }
+
+        public static void borrarMovimiento(int idmovimiento)
         {
             string connectionString = "datasource=127.0.0.1;port=3306;username=root;password=;database=librodiario;";
             string query = "DELETE FROM movimiento WHERE id_movimiento = " + idmovimiento;
