@@ -21,7 +21,7 @@ namespace ProgramaContable.Vista
 
         private void botonNuevo_Click(object sender, EventArgs e)
         {
-            VerMovimiento nuevoMovi = new VerMovimiento();
+            AgregarMovimiento nuevoMovi = new AgregarMovimiento();
             nuevoMovi.Visible = true;
         }
 

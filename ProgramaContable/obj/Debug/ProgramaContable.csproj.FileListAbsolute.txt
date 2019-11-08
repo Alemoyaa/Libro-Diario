@@ -41,3 +41,22 @@ D:\Git Repository Windows\Libro-Diario\ProgramaContable\obj\Debug\ProgramaContab
 D:\Git Repository Windows\Libro-Diario\ProgramaContable\obj\Debug\ProgramaContable.Vista.LibroMayor.resources
 D:\Git Repository Windows\Libro-Diario\ProgramaContable\obj\Debug\ProgramaContable.Vista.VerLibroMayor.resources
 D:\Git Repository Windows\Libro-Diario\ProgramaContable\obj\Debug\ProgramaContable.csprojAssemblyReference.cache
+C:\Users\AleMo\Downloads\Libro-Diario-master\Libro-Diario-master\ProgramaContable\bin\Debug\ProgramaContable.exe.config
+C:\Users\AleMo\Downloads\Libro-Diario-master\Libro-Diario-master\ProgramaContable\bin\Debug\ProgramaContable.exe
+C:\Users\AleMo\Downloads\Libro-Diario-master\Libro-Diario-master\ProgramaContable\bin\Debug\ProgramaContable.pdb
+C:\Users\AleMo\Downloads\Libro-Diario-master\Libro-Diario-master\ProgramaContable\bin\Debug\Google.Protobuf.dll
+C:\Users\AleMo\Downloads\Libro-Diario-master\Libro-Diario-master\ProgramaContable\bin\Debug\BouncyCastle.Crypto.dll
+C:\Users\AleMo\Downloads\Libro-Diario-master\Libro-Diario-master\ProgramaContable\bin\Debug\Renci.SshNet.dll
+C:\Users\AleMo\Downloads\Libro-Diario-master\Libro-Diario-master\ProgramaContable\bin\Debug\MySql.Data.xml
+C:\Users\AleMo\Downloads\Libro-Diario-master\Libro-Diario-master\ProgramaContable\obj\Debug\ProgramaContable.csprojAssemblyReference.cache
+C:\Users\AleMo\Downloads\Libro-Diario-master\Libro-Diario-master\ProgramaContable\obj\Debug\ProgramaContable.Vista.LibroDiario.resources
+C:\Users\AleMo\Downloads\Libro-Diario-master\Libro-Diario-master\ProgramaContable\obj\Debug\ProgramaContable.Vista.LibroMayor.resources
+C:\Users\AleMo\Downloads\Libro-Diario-master\Libro-Diario-master\ProgramaContable\obj\Debug\ProgramaContable.MenuContable.resources
+C:\Users\AleMo\Downloads\Libro-Diario-master\Libro-Diario-master\ProgramaContable\obj\Debug\ProgramaContable.Properties.Resources.resources
+C:\Users\AleMo\Downloads\Libro-Diario-master\Libro-Diario-master\ProgramaContable\obj\Debug\ProgramaContable.Vista.VerAsiento.resources
+C:\Users\AleMo\Downloads\Libro-Diario-master\Libro-Diario-master\ProgramaContable\obj\Debug\ProgramaContable.Vista.VerLibroMayor.resources
+C:\Users\AleMo\Downloads\Libro-Diario-master\Libro-Diario-master\ProgramaContable\obj\Debug\ProgramaContable.csproj.GenerateResource.cache
+C:\Users\AleMo\Downloads\Libro-Diario-master\Libro-Diario-master\ProgramaContable\obj\Debug\ProgramaContable.csproj.CopyComplete
+C:\Users\AleMo\Downloads\Libro-Diario-master\Libro-Diario-master\ProgramaContable\obj\Debug\ProgramaContable.exe
+C:\Users\AleMo\Downloads\Libro-Diario-master\Libro-Diario-master\ProgramaContable\obj\Debug\ProgramaContable.pdb
+C:\Users\AleMo\Downloads\Libro-Diario-master\Libro-Diario-master\ProgramaContable\obj\Debug\ProgramaContable.Vista.AgregarMovimiento.resources

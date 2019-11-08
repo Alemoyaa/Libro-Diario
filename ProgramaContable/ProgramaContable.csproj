@@ -89,11 +89,11 @@
     <Compile Include="Vista\VerLibroMayor.Designer.cs">
       <DependentUpon>VerLibroMayor.cs</DependentUpon>
     </Compile>
-    <Compile Include="Vista\VerMovimiento.cs">
+    <Compile Include="Vista\AgregarMovimiento.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Vista\VerMovimiento.Designer.cs">
-      <DependentUpon>VerMovimiento.cs</DependentUpon>
+    <Compile Include="Vista\AgregarMovimiento.Designer.cs">
+      <DependentUpon>AgregarMovimiento.cs</DependentUpon>
     </Compile>
     <EmbeddedResource Include="Vista\LibroDiario.resx">
       <DependentUpon>LibroDiario.cs</DependentUpon>
@@ -120,8 +120,8 @@
     <EmbeddedResource Include="Vista\VerLibroMayor.resx">
       <DependentUpon>VerLibroMayor.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Vista\VerMovimiento.resx">
-      <DependentUpon>VerMovimiento.cs</DependentUpon>
+    <EmbeddedResource Include="Vista\AgregarMovimiento.resx">
+      <DependentUpon>AgregarMovimiento.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

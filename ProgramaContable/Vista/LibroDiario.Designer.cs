@@ -66,7 +66,7 @@
             // 
             // BotonTodosMes
             // 
-            this.BotonTodosMes.Location = new System.Drawing.Point(592, 17);
+            this.BotonTodosMes.Location = new System.Drawing.Point(592, 21);
             this.BotonTodosMes.Name = "BotonTodosMes";
             this.BotonTodosMes.Size = new System.Drawing.Size(115, 23);
             this.BotonTodosMes.TabIndex = 5;
@@ -75,7 +75,7 @@
             // 
             // BotonFechaS
             // 
-            this.BotonFechaS.Location = new System.Drawing.Point(479, 17);
+            this.BotonFechaS.Location = new System.Drawing.Point(478, 21);
             this.BotonFechaS.Name = "BotonFechaS";
             this.BotonFechaS.Size = new System.Drawing.Size(98, 23);
             this.BotonFechaS.TabIndex = 4;
@@ -163,7 +163,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(780, 400);
             this.Controls.Add(this.groupBoxAsientos);
             this.Controls.Add(this.groupBoxBusqueda);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
