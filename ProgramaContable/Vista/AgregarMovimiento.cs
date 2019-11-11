@@ -27,8 +27,18 @@ namespace ProgramaContable.Vista
         private void botonGuardar_Click(object sender, EventArgs e)
         {
             double saldoIngresado;
-            saldoIngresado =Convert.ToDouble(textBox1.Text); //Recupero el saldo del textBox
-            
+            Boolean debeOHaber;
+
+            try
+            {
+                saldoIngresado = Convert.ToDouble(textBox1.Text); //Recupero el saldo del textBox
+                debeOHaber = Convert.ToBoolean(radioButtonDebe.Checked); //Guardo en true si es debe, false si es haber
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Ingrese un saldo para registrar");
+            }
+           
         }
 
         private void CargadorDeDatos()
