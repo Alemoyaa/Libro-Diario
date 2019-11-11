@@ -169,6 +169,7 @@
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
             this.Name = "LibroDiario";
             this.Text = "Ver Libro Diario";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.LibroDiario_FormClosing);
             this.groupBoxBusqueda.ResumeLayout(false);
             this.groupBoxAsientos.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();

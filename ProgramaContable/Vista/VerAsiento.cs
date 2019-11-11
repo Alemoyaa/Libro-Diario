@@ -39,14 +39,14 @@ namespace ProgramaContable.Vista
 
         private void botonCancelar_Click(object sender, EventArgs e)
         {
-            try { 
-                menuAnterior.Visible = true;
-                this.Dispose();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
+            menuAnterior.Visible = true;
+            this.Dispose();
+        }
+
+        private void VerAsiento_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            menuAnterior.Visible = true;
+            this.Dispose();
         }
     }
 }

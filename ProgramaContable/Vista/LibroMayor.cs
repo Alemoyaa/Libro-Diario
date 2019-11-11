@@ -120,6 +120,10 @@ namespace ProgramaContable.Vista
             }
         }
 
-        
+        private void LibroMayor_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            VistaAnterior.Visible = true;
+            this.Dispose();
+        }
     }
 }

@@ -167,6 +167,7 @@
             this.Controls.Add(this.groupBoxMovimiento);
             this.Name = "AgregarMovimiento";
             this.Text = "VerMovimiento";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.AgregarMovimiento_FormClosing);
             this.groupBoxMovimiento.ResumeLayout(false);
             this.groupBoxMovimiento.PerformLayout();
             this.ResumeLayout(false);

@@ -60,6 +60,7 @@
             this.Controls.Add(this.textBoxMayores);
             this.Name = "VerLibroMayor";
             this.Text = "VerLibroMayor";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.VerLibroMayor_FormClosing);
             this.ResumeLayout(false);
             this.PerformLayout();
 

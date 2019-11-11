@@ -196,6 +196,7 @@
             this.Controls.Add(this.groupBoxAsiento);
             this.Name = "VerAsiento";
             this.Text = "VerAsiento";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.VerAsiento_FormClosing);
             this.groupBoxAsiento.ResumeLayout(false);
             this.groupBoxAsiento.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();

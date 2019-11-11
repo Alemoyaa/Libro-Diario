@@ -218,6 +218,7 @@
             this.Controls.Add(this.groupBoxLibroMayor);
             this.Name = "LibroMayor";
             this.Text = "LibroMayor";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.LibroMayor_FormClosing);
             this.Load += new System.EventHandler(this.LibroMayor_Load);
             this.groupBoxLibroMayor.ResumeLayout(false);
             this.groupBoxLibroMayor.PerformLayout();

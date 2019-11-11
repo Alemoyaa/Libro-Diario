@@ -39,5 +39,11 @@ namespace ProgramaContable.Vista
         {
 
         }
+
+        private void LibroDiario_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            VistaAnterior.Visible = true;
+            this.Dispose();
+        }
     }
 }

@@ -104,5 +104,10 @@ namespace ProgramaContable.Vista
                 MessageBox.Show("Error al cargar tipo de cuentas. Por favor vuelva a intentarlo mas tarde.");
             }
         }
+
+        private void AgregarMovimiento_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            this.Dispose();
+        }
     }
 }

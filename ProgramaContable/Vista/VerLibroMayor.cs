@@ -244,6 +244,9 @@ namespace ProgramaContable.Vista
             this.Dispose();
         }
 
-
+        private void VerLibroMayor_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            this.Dispose();
+        }
     }
 }
