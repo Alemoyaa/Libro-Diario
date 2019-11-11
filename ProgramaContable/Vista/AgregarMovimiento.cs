@@ -26,16 +26,9 @@ namespace ProgramaContable.Vista
 
         private void botonGuardar_Click(object sender, EventArgs e)
         {
+            double saldoIngresado;
+            saldoIngresado =Convert.ToDouble(textBox1.Text); //Recupero el saldo del textBox
             
-            /*Boolean debeOHaber;
-            if (radioButtonDebe.Checked)
-            {
-                debeOHaber = true;
-            }else if (radioButtonHaber.Checked)
-            {
-                debeOHaber = false;
-            }*/
-
         }
 
         private void CargadorDeDatos()
