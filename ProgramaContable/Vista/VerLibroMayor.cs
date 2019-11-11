@@ -16,51 +16,58 @@ namespace ProgramaContable.Vista
         private List<MoviCuenta> listaAMostrar = new List<MoviCuenta>();
         public VerLibroMayor(int mes, int anio)
         {
-            InitializeComponent();
-            List<Movimiento> lista = Movimiento.ListarMovimientosFecha(mes, anio);
-            if (lista.Any())
-            {
-                foreach (Movimiento mov in lista)
+            try { 
+                InitializeComponent();
+                List<Movimiento> lista = Movimiento.ListarMovimientosFecha(mes, anio);
+                if (lista.Any())
                 {
-                    if (!listaAMostrar.Any() || !listaAMostrar.Exists(x => x.NombreCuenta.Equals(mov.Cuenta.NombreCuenta)))
+                    foreach (Movimiento mov in lista)
                     {
-                        MoviCuenta movinuevo = new MoviCuenta();
-                        movinuevo.NombreCuenta = mov.Cuenta.NombreCuenta;
-                        if (mov.Debe_haber)
+                        if (!listaAMostrar.Any() || !listaAMostrar.Exists(x => x.NombreCuenta.Equals(mov.Cuenta.NombreCuenta)))
                         {
-                            movinuevo.Movimientosdebe.Add(mov);
+                            MoviCuenta movinuevo = new MoviCuenta();
+                            movinuevo.NombreCuenta = mov.Cuenta.NombreCuenta;
+                            if (mov.Debe_haber)
+                            {
+                                movinuevo.Movimientosdebe.Add(mov);
+                            }
+                            else
+                            {
+                                movinuevo.Movimientoshaber.Add(mov);
+                            }
+                            listaAMostrar.Add(movinuevo);
                         }
                         else
                         {
-                            movinuevo.Movimientoshaber.Add(mov);
-                        }
-                        listaAMostrar.Add(movinuevo);
-                    }
-                    else
-                    {
-                        MoviCuenta movi2 = listaAMostrar.Find(x => x.NombreCuenta.Equals(mov.Cuenta.NombreCuenta));
-                        if (mov.Debe_haber)
-                        {
-                            movi2.Movimientosdebe.Add(mov);
-                        }
-                        else
-                        {
-                            movi2.Movimientoshaber.Add(mov);
+                            MoviCuenta movi2 = listaAMostrar.Find(x => x.NombreCuenta.Equals(mov.Cuenta.NombreCuenta));
+                            if (mov.Debe_haber)
+                            {
+                                movi2.Movimientosdebe.Add(mov);
+                            }
+                            else
+                            {
+                                movi2.Movimientoshaber.Add(mov);
+                            }
                         }
                     }
+                    MostrarTodo();
+                    this.Visible = true;
                 }
-                MostrarTodo();
-                this.Visible = true;
+                else
+                {
+                    MessageBox.Show("No se encontraron movimientos en esa fecha", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    this.Visible = false;
+                }
             }
-            else
+            catch (Exception ex)
             {
-                MessageBox.Show("No se encontraron movimientos en esa fecha", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                this.Visible = false;
+                MessageBox.Show(ex.Message);
             }
         }
         public VerLibroMayor(bool opcion, int mes, int anio, int value)
         {
             //Este esta funcionando, arreglar los otros
+            try { 
             InitializeComponent();
             if (opcion) {
                 List<Movimiento> lista = Movimiento.ListarMovimientos(mes, anio, value);
@@ -130,10 +137,16 @@ namespace ProgramaContable.Vista
                     MessageBox.Show("No se encontraron movimientos en esa fecha", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     this.Visible = false;
                 }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
             }
         }
         public void MostrarTodo()
         {
+            try { 
             String texto = "";
             foreach (MoviCuenta mov in listaAMostrar)
             {
@@ -164,9 +177,15 @@ namespace ProgramaContable.Vista
                 
             }
             this.textBoxMayores.Text = texto;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
         private MoviCuenta EquilibrarValores(MoviCuenta mov)
         {
+            try { 
             if(mov.Movimientosdebe.Count > mov.Movimientoshaber.Count)
             {
                 int dif = mov.Movimientosdebe.Count - mov.Movimientoshaber.Count;
@@ -189,22 +208,36 @@ namespace ProgramaContable.Vista
                 }
                 return mov;
             }
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                return null;
+            }
         }
         private float CalcularTotal(MoviCuenta mov)
         {
-            float totaldebe = 0f;
-            float totalhaber = 0f;
-            foreach (Movimiento movd in mov.Movimientosdebe)
+            try
             {
-                totaldebe = totaldebe + movd.Valor;
-            }
-            foreach (Movimiento movd in mov.Movimientoshaber)
-            {
-                totalhaber = totalhaber + movd.Valor;
-            }
+                float totaldebe = 0f;
+                float totalhaber = 0f;
+                foreach (Movimiento movd in mov.Movimientosdebe)
+                {
+                    totaldebe = totaldebe + movd.Valor;
+                }
+                foreach (Movimiento movd in mov.Movimientoshaber)
+                {
+                    totalhaber = totalhaber + movd.Valor;
+                }
 
-            return totaldebe - totalhaber;
-        }
+                return totaldebe - totalhaber;
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                return 0;
+            }
+}
 
         private void botonVolver_Click(object sender, EventArgs e)
         {

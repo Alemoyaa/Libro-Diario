@@ -21,16 +21,33 @@ namespace ProgramaContable
 
         private void BotonLibroDiario_Click(object sender, EventArgs e)
         {
-            LibroDiario vistaLB = new LibroDiario(this);
-            vistaLB.Visible = true;
-            this.Visible = false;
+            try { 
+                LibroDiario vistaLB = new LibroDiario(this);
+                vistaLB.Visible = true;
+                this.Visible = false;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
 
         private void botonLibroMayor_Click(object sender, EventArgs e)
         {
-            LibroMayor vistaLM = new LibroMayor(this);
-            vistaLM.Visible = true;
-            this.Visible = false;
+            try { 
+                LibroMayor vistaLM = new LibroMayor(this);
+                vistaLM.Visible = true;
+                this.Visible = false;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void MenuContable_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

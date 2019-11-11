@@ -54,41 +54,70 @@ namespace ProgramaContable.Vista
 
         private void LibroMayor_Load(object sender, EventArgs e)
         {
-            setearComboBoxTipo();
-            setearComboBoxNombre();
-            comboBoxTipo.SelectedIndex = 0;
-            comboBoxNombre.SelectedIndex = 0;
-            comboBoxMes.SelectedIndex = 0;
-            comboBoxAnio.SelectedIndex = comboBoxAnio.Items.Count-1;
+            try
+            {
+                setearComboBoxTipo();
+                setearComboBoxNombre();
+                comboBoxTipo.SelectedIndex = 0;
+                comboBoxNombre.SelectedIndex = 0;
+                comboBoxMes.SelectedIndex = 0;
+                comboBoxAnio.SelectedIndex = comboBoxAnio.Items.Count - 1;
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("No se pudo cargar la base de datos. Revise su conexion");
+                this.Close();
+                Application.Exit();
+            }
         }
 
         private void setearComboBoxTipo()
         {
-            List<TipodeCuenta> lista = TipodeCuenta.TraerTipos();
-            foreach (TipodeCuenta i in lista)
+            try
             {
-                this.comboBoxTipo.Items.Add(new ComboBoxItem(i.DescripcionTipo,i.Id));
+                List<TipodeCuenta> lista = TipodeCuenta.TraerTipos();
+                foreach (TipodeCuenta i in lista)
+                {
+                    this.comboBoxTipo.Items.Add(new ComboBoxItem(i.DescripcionTipo, i.Id));
+                }
             }
-        }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+}
         private void setearComboBoxNombre()
         {
-            List<Cuenta> lista = Cuenta.ListarCuentas(1);
-            foreach (Cuenta i in lista)
+            try { 
+                List<Cuenta> lista = Cuenta.ListarCuentas(1);
+                foreach (Cuenta i in lista)
+                {
+                    this.comboBoxNombre.Items.Add(new ComboBoxItem(i.NombreCuenta, i.IdCuenta));
+                }
+            }
+            catch (Exception ex)
             {
-                this.comboBoxNombre.Items.Add(new ComboBoxItem(i.NombreCuenta, i.IdCuenta));
+                MessageBox.Show(ex.Message);
             }
         }
 
         private void comboBoxTipo_SelectedIndexChanged(object sender, EventArgs e)
         {
-            comboBoxNombre.Items.Clear();
-            int hValue = ((ComboBoxItem)comboBoxTipo.SelectedItem).HiddenValue;
-            List<Cuenta> lista = Cuenta.ListarCuentas(hValue);
-            foreach (Cuenta i in lista)
+            try
             {
-                this.comboBoxNombre.Items.Add(new ComboBoxItem(i.NombreCuenta, i.IdCuenta));
+                comboBoxNombre.Items.Clear();
+                int hValue = ((ComboBoxItem)comboBoxTipo.SelectedItem).HiddenValue;
+                List<Cuenta> lista = Cuenta.ListarCuentas(hValue);
+                foreach (Cuenta i in lista)
+                {
+                    this.comboBoxNombre.Items.Add(new ComboBoxItem(i.NombreCuenta, i.IdCuenta));
+                }
+                comboBoxNombre.SelectedIndex = 0;
             }
-            comboBoxNombre.SelectedIndex = 0;
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
 
         

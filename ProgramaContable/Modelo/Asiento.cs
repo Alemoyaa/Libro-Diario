@@ -32,42 +32,42 @@ namespace ProgramaContable.Modelo
         public static List<Asiento> ListarAsientos()
         {
             List<Asiento> listadeasiento = new List<Asiento>();
-            string connectionString = "datasource=127.0.0.1;port=3306;username=root;password=;database=librodiario;";
-            string query = "SELECT * FROM asiento";
+                string connectionString = "datasource=127.0.0.1;port=3306;username=root;password=;database=librodiario;";
+                string query = "SELECT * FROM asiento";
 
 
-            MySqlConnection databaseConnection = new MySqlConnection(connectionString);
-            MySqlCommand commandDatabase = new MySqlCommand(query, databaseConnection);
-            commandDatabase.CommandTimeout = 60;
-            MySqlDataReader reader;
-           
+                MySqlConnection databaseConnection = new MySqlConnection(connectionString);
+                MySqlCommand commandDatabase = new MySqlCommand(query, databaseConnection);
+                commandDatabase.CommandTimeout = 60;
+                MySqlDataReader reader;
 
-            try
-            {
-                databaseConnection.Open();
-                reader = commandDatabase.ExecuteReader();
 
-                if (reader.HasRows)
+                try
                 {
-                    while (reader.Read())
-                    {
-                        Asiento asiento = new Asiento();
-                        asiento.Id = reader.GetInt32(0);
-                        asiento.Numero_asiento = reader.GetInt32(1);
-                        asiento.Fecha_asiento = reader.GetString(2);
-                        asiento.Descripcion_asiento = reader.GetString(3);
-                        listadeasiento.Add(asiento);
-                    }
-                }
+                    databaseConnection.Open();
+                    reader = commandDatabase.ExecuteReader();
 
-                databaseConnection.Close();
-                return listadeasiento;
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-                return listadeasiento;
-            }
+                    if (reader.HasRows)
+                    {
+                        while (reader.Read())
+                        {
+                            Asiento asiento = new Asiento();
+                            asiento.Id = reader.GetInt32(0);
+                            asiento.Numero_asiento = reader.GetInt32(1);
+                            asiento.Fecha_asiento = reader.GetString(2);
+                            asiento.Descripcion_asiento = reader.GetString(3);
+                            listadeasiento.Add(asiento);
+                        }
+                    }
+
+                    databaseConnection.Close();
+                    return listadeasiento;
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                    return listadeasiento;
+                }
         }
         public static List<Asiento> ListarAsientosporFecha(string fecha)
         {

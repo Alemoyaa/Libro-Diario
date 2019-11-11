@@ -15,20 +15,38 @@ namespace ProgramaContable.Vista
         private static Form menuAnterior;
         public VerAsiento(Form vista)
         {
-            menuAnterior = vista;
-            InitializeComponent();
+            try { 
+                menuAnterior = vista;
+                InitializeComponent();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
 
         private void botonNuevo_Click(object sender, EventArgs e)
         {
-            AgregarMovimiento nuevoMovi = new AgregarMovimiento();
-            nuevoMovi.Visible = true;
+            try { 
+                AgregarMovimiento nuevoMovi = new AgregarMovimiento();
+                nuevoMovi.Visible = true;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
 
         private void botonCancelar_Click(object sender, EventArgs e)
         {
-            menuAnterior.Visible = true;
-            this.Dispose();
+            try { 
+                menuAnterior.Visible = true;
+                this.Dispose();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
     }
 }
