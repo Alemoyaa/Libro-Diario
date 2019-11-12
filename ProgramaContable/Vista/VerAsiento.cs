@@ -155,10 +155,12 @@ namespace ProgramaContable.Vista
                     asiento.Descripcion_asiento = textBoxDescr.Text.ToString();
                     string fecha = dateTimePickerFecha.Value.ToString("yyyy-MM-dd");
                     asiento.Fecha_asiento = fecha;
-                    Asiento.CrearAsiento(asiento);
+                    int idasiento = Asiento.CrearAsiento(asiento);
 
                     foreach (Movimiento item in asiento.Asiento_movimiento)
                     {
+                       item.Asiento = asiento;
+                       item.Asiento.Id = idasiento;
                        Movimiento.CrearMovimiento(item);
                     }
                 }
@@ -181,6 +183,7 @@ namespace ProgramaContable.Vista
                         }
                         else
                         {
+                            item.Asiento = asiento;
                             Movimiento.CrearMovimiento(item);
                         }
                     }

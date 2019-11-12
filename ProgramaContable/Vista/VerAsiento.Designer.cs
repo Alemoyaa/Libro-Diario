@@ -32,10 +32,17 @@ namespace ProgramaContable.Vista
         private void InitializeComponent()
         {
             this.groupBoxAsiento = new System.Windows.Forms.GroupBox();
+            this.botonRefrescar = new System.Windows.Forms.Button();
             this.botonCancelar = new System.Windows.Forms.Button();
             this.botonGuardar = new System.Windows.Forms.Button();
             this.botonNuevo = new System.Windows.Forms.Button();
             this.dataGridMovimientos = new System.Windows.Forms.DataGridView();
+            this.textBoxDescr = new System.Windows.Forms.TextBox();
+            this.textBoxNumero = new System.Windows.Forms.TextBox();
+            this.dateTimePickerFecha = new System.Windows.Forms.DateTimePicker();
+            this.labelDesc = new System.Windows.Forms.Label();
+            this.labelNumero = new System.Windows.Forms.Label();
+            this.labelFecha = new System.Windows.Forms.Label();
             this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColNombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColTipoCuenta = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -43,13 +50,6 @@ namespace ProgramaContable.Vista
             this.ColSaldo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColEditar = new System.Windows.Forms.DataGridViewButtonColumn();
             this.ColEliminar = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.textBoxDescr = new System.Windows.Forms.TextBox();
-            this.textBoxNumero = new System.Windows.Forms.TextBox();
-            this.dateTimePickerFecha = new System.Windows.Forms.DateTimePicker();
-            this.labelDesc = new System.Windows.Forms.Label();
-            this.labelNumero = new System.Windows.Forms.Label();
-            this.labelFecha = new System.Windows.Forms.Label();
-            this.botonRefrescar = new System.Windows.Forms.Button();
             this.groupBoxAsiento.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridMovimientos)).BeginInit();
             this.SuspendLayout();
@@ -73,6 +73,16 @@ namespace ProgramaContable.Vista
             this.groupBoxAsiento.TabIndex = 0;
             this.groupBoxAsiento.TabStop = false;
             this.groupBoxAsiento.Text = "Editar Asiento";
+            // 
+            // botonRefrescar
+            // 
+            this.botonRefrescar.Location = new System.Drawing.Point(25, 316);
+            this.botonRefrescar.Name = "botonRefrescar";
+            this.botonRefrescar.Size = new System.Drawing.Size(75, 23);
+            this.botonRefrescar.TabIndex = 10;
+            this.botonRefrescar.Text = "Refrescar";
+            this.botonRefrescar.UseVisualStyleBackColor = true;
+            this.botonRefrescar.Click += new System.EventHandler(this.botonRefrescar_Click);
             // 
             // botonCancelar
             // 
@@ -119,54 +129,8 @@ namespace ProgramaContable.Vista
             this.dataGridMovimientos.Name = "dataGridMovimientos";
             this.dataGridMovimientos.Size = new System.Drawing.Size(718, 150);
             this.dataGridMovimientos.TabIndex = 6;
-            // 
-            // ID
-            // 
-            this.ID.HeaderText = "ID";
-            this.ID.Name = "ID";
-            this.ID.Visible = false;
-            // 
-            // ColNombre
-            // 
-            this.ColNombre.FillWeight = 200F;
-            this.ColNombre.HeaderText = "Nombre Cuenta";
-            this.ColNombre.Name = "ColNombre";
-            this.ColNombre.ReadOnly = true;
-            this.ColNombre.Width = 200;
-            // 
-            // ColTipoCuenta
-            // 
-            this.ColTipoCuenta.FillWeight = 130F;
-            this.ColTipoCuenta.HeaderText = "Tipo de Cuenta";
-            this.ColTipoCuenta.Name = "ColTipoCuenta";
-            this.ColTipoCuenta.ReadOnly = true;
-            this.ColTipoCuenta.Width = 130;
-            // 
-            // ColValor
-            // 
-            this.ColValor.HeaderText = "Valor";
-            this.ColValor.Name = "ColValor";
-            this.ColValor.ReadOnly = true;
-            // 
-            // ColSaldo
-            // 
-            this.ColSaldo.HeaderText = "Saldo";
-            this.ColSaldo.Name = "ColSaldo";
-            this.ColSaldo.ReadOnly = true;
-            // 
-            // ColEditar
-            // 
-            this.ColEditar.HeaderText = "Editar";
-            this.ColEditar.Name = "ColEditar";
-            this.ColEditar.UseColumnTextForButtonValue = true;
-            this.ColEditar.Width = 70;
-            // 
-            // ColEliminar
-            // 
-            this.ColEliminar.HeaderText = "Eliminar";
-            this.ColEliminar.Name = "ColEliminar";
-            this.ColEliminar.UseColumnTextForButtonValue = true;
-            this.ColEliminar.Width = 70;
+            this.dataGridMovimientos.CellClick += eventosClick;
+
             // 
             // textBoxDescr
             // 
@@ -220,15 +184,55 @@ namespace ProgramaContable.Vista
             this.labelFecha.TabIndex = 0;
             this.labelFecha.Text = "Fecha del asiento:";
             // 
-            // botonRefrescar
+            // ID
             // 
-            this.botonRefrescar.Location = new System.Drawing.Point(25, 316);
-            this.botonRefrescar.Name = "botonRefrescar";
-            this.botonRefrescar.Size = new System.Drawing.Size(75, 23);
-            this.botonRefrescar.TabIndex = 10;
-            this.botonRefrescar.Text = "Refrescar";
-            this.botonRefrescar.UseVisualStyleBackColor = true;
-            this.botonRefrescar.Click += new System.EventHandler(this.botonRefrescar_Click);
+            this.ID.HeaderText = "ID";
+            this.ID.Name = "ID";
+            this.ID.Visible = false;
+            // 
+            // ColNombre
+            // 
+            this.ColNombre.FillWeight = 200F;
+            this.ColNombre.HeaderText = "Nombre Cuenta";
+            this.ColNombre.Name = "ColNombre";
+            this.ColNombre.ReadOnly = true;
+            this.ColNombre.Width = 200;
+            // 
+            // ColTipoCuenta
+            // 
+            this.ColTipoCuenta.FillWeight = 130F;
+            this.ColTipoCuenta.HeaderText = "Tipo de Cuenta";
+            this.ColTipoCuenta.Name = "ColTipoCuenta";
+            this.ColTipoCuenta.ReadOnly = true;
+            this.ColTipoCuenta.Width = 130;
+            // 
+            // ColValor
+            // 
+            this.ColValor.HeaderText = "Valor";
+            this.ColValor.Name = "ColValor";
+            this.ColValor.ReadOnly = true;
+            // 
+            // ColSaldo
+            // 
+            this.ColSaldo.HeaderText = "Saldo";
+            this.ColSaldo.Name = "ColSaldo";
+            this.ColSaldo.ReadOnly = true;
+            // 
+            // ColEditar
+            // 
+            this.ColEditar.HeaderText = "Editar";
+            this.ColEditar.Name = "ColEditar";
+            this.ColEditar.Text = "Editar";
+            this.ColEditar.UseColumnTextForButtonValue = true;
+            this.ColEditar.Width = 70;
+            // 
+            // ColEliminar
+            // 
+            this.ColEliminar.HeaderText = "Eliminar";
+            this.ColEliminar.Name = "ColEliminar";
+            this.ColEliminar.Text = "Eliminar";
+            this.ColEliminar.UseColumnTextForButtonValue = true;
+            this.ColEliminar.Width = 70;
             // 
             // VerAsiento
             // 
@@ -279,13 +283,13 @@ namespace ProgramaContable.Vista
         private System.Windows.Forms.Button botonGuardar;
         private System.Windows.Forms.Button botonNuevo;
         private System.Windows.Forms.DataGridView dataGridMovimientos;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ID;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ColNombre;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ColTipoCuenta;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ColValor;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ColSaldo;
-        private System.Windows.Forms.DataGridViewButtonColumn ColEditar;
-        private System.Windows.Forms.DataGridViewButtonColumn ColEliminar;
         private Button botonRefrescar;
+        private DataGridViewTextBoxColumn ID;
+        private DataGridViewTextBoxColumn ColNombre;
+        private DataGridViewTextBoxColumn ColTipoCuenta;
+        private DataGridViewTextBoxColumn ColValor;
+        private DataGridViewTextBoxColumn ColSaldo;
+        private DataGridViewButtonColumn ColEditar;
+        private DataGridViewButtonColumn ColEliminar;
     }
 }

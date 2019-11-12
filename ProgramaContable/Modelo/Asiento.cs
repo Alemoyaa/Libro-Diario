@@ -235,11 +235,12 @@ namespace ProgramaContable.Modelo
 
             return resultado;
         }
-        public static void CrearAsiento(Asiento asi)
+        public static int CrearAsiento(Asiento asi)
         {
 
             string connectionString = "datasource=127.0.0.1;port=3306;username=root;password=;database=librodiario;";
             string query = "INSERT INTO asiento(numero_asiento, fecha_asiento, descr_asiento) VALUES(" + asi.Numero_asiento + ", '" + asi.Fecha_asiento + "', '" + asi.Descripcion_asiento + "')";
+  
 
             MySqlConnection databaseConnection = new MySqlConnection(connectionString);
             MySqlCommand commandDatabase = new MySqlCommand(query, databaseConnection);
@@ -253,10 +254,14 @@ namespace ProgramaContable.Modelo
                 MessageBox.Show("Asiento creado satisfactoriamente");
 
                 databaseConnection.Close();
+                
+                return Convert.ToInt32(commandDatabase.LastInsertedId);
             }
             catch (Exception ex)
             {
+
                 MessageBox.Show(ex.Message);
+                return 0;
             }
         }
         public static void UpdateAsiento(Asiento asi)
