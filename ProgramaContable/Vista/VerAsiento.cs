@@ -15,7 +15,7 @@ namespace ProgramaContable.Vista
     {
         private static Form menuAnterior;
         private int opcionesGuardar;
-        private Asiento asiento;
+        public Asiento asiento;
         public VerAsiento(Form vista)
         {
             try { 
