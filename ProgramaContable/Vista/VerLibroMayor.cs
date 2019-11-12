@@ -130,7 +130,8 @@ namespace ProgramaContable.Vista
                             }
                         }
                     }
-                    this.Visible = true;
+                        MostrarTodo();
+                        this.Visible = true;
                 }
                 else
                 {
@@ -248,5 +249,7 @@ namespace ProgramaContable.Vista
         {
             this.Dispose();
         }
+
+       
     }
 }

@@ -1,4 +1,7 @@
-﻿namespace ProgramaContable.Vista
+﻿using ProgramaContable.Modelo;
+using System.Windows.Forms;
+
+namespace ProgramaContable.Vista
 {
     partial class VerAsiento
     {
@@ -32,36 +35,41 @@
             this.botonCancelar = new System.Windows.Forms.Button();
             this.botonGuardar = new System.Windows.Forms.Button();
             this.botonNuevo = new System.Windows.Forms.Button();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dataGridMovimientos = new System.Windows.Forms.DataGridView();
+            this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColNombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colTipoCuenta = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColTipoCuenta = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColValor = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColSaldo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.ColEditar = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.ColEliminar = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.textBoxDescr = new System.Windows.Forms.TextBox();
+            this.textBoxNumero = new System.Windows.Forms.TextBox();
+            this.dateTimePickerFecha = new System.Windows.Forms.DateTimePicker();
             this.labelDesc = new System.Windows.Forms.Label();
             this.labelNumero = new System.Windows.Forms.Label();
             this.labelFecha = new System.Windows.Forms.Label();
+            this.botonRefrescar = new System.Windows.Forms.Button();
             this.groupBoxAsiento.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridMovimientos)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBoxAsiento
             // 
+            this.groupBoxAsiento.Controls.Add(this.botonRefrescar);
             this.groupBoxAsiento.Controls.Add(this.botonCancelar);
             this.groupBoxAsiento.Controls.Add(this.botonGuardar);
             this.groupBoxAsiento.Controls.Add(this.botonNuevo);
-            this.groupBoxAsiento.Controls.Add(this.dataGridView1);
-            this.groupBoxAsiento.Controls.Add(this.textBox2);
-            this.groupBoxAsiento.Controls.Add(this.textBox1);
-            this.groupBoxAsiento.Controls.Add(this.dateTimePicker1);
+            this.groupBoxAsiento.Controls.Add(this.dataGridMovimientos);
+            this.groupBoxAsiento.Controls.Add(this.textBoxDescr);
+            this.groupBoxAsiento.Controls.Add(this.textBoxNumero);
+            this.groupBoxAsiento.Controls.Add(this.dateTimePickerFecha);
             this.groupBoxAsiento.Controls.Add(this.labelDesc);
             this.groupBoxAsiento.Controls.Add(this.labelNumero);
             this.groupBoxAsiento.Controls.Add(this.labelFecha);
             this.groupBoxAsiento.Location = new System.Drawing.Point(23, 23);
             this.groupBoxAsiento.Name = "groupBoxAsiento";
-            this.groupBoxAsiento.Size = new System.Drawing.Size(737, 394);
+            this.groupBoxAsiento.Size = new System.Drawing.Size(749, 394);
             this.groupBoxAsiento.TabIndex = 0;
             this.groupBoxAsiento.TabStop = false;
             this.groupBoxAsiento.Text = "Editar Asiento";
@@ -84,6 +92,7 @@
             this.botonGuardar.TabIndex = 8;
             this.botonGuardar.Text = "Guardar";
             this.botonGuardar.UseVisualStyleBackColor = true;
+            this.botonGuardar.Click += new System.EventHandler(this.botonGuardar_Click);
             // 
             // botonNuevo
             // 
@@ -95,34 +104,43 @@
             this.botonNuevo.UseVisualStyleBackColor = true;
             this.botonNuevo.Click += new System.EventHandler(this.botonNuevo_Click);
             // 
-            // dataGridView1
+            // dataGridMovimientos
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataGridMovimientos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridMovimientos.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.ID,
             this.ColNombre,
-            this.colTipoCuenta,
+            this.ColTipoCuenta,
             this.ColValor,
-            this.ColSaldo});
-            this.dataGridView1.Location = new System.Drawing.Point(46, 147);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(643, 150);
-            this.dataGridView1.TabIndex = 6;
+            this.ColSaldo,
+            this.ColEditar,
+            this.ColEliminar});
+            this.dataGridMovimientos.Location = new System.Drawing.Point(25, 147);
+            this.dataGridMovimientos.Name = "dataGridMovimientos";
+            this.dataGridMovimientos.Size = new System.Drawing.Size(718, 150);
+            this.dataGridMovimientos.TabIndex = 6;
+            // 
+            // ID
+            // 
+            this.ID.HeaderText = "ID";
+            this.ID.Name = "ID";
+            this.ID.Visible = false;
             // 
             // ColNombre
             // 
-            this.ColNombre.FillWeight = 250F;
+            this.ColNombre.FillWeight = 200F;
             this.ColNombre.HeaderText = "Nombre Cuenta";
             this.ColNombre.Name = "ColNombre";
             this.ColNombre.ReadOnly = true;
-            this.ColNombre.Width = 250;
+            this.ColNombre.Width = 200;
             // 
-            // colTipoCuenta
+            // ColTipoCuenta
             // 
-            this.colTipoCuenta.FillWeight = 150F;
-            this.colTipoCuenta.HeaderText = "Tipo de Cuenta";
-            this.colTipoCuenta.Name = "colTipoCuenta";
-            this.colTipoCuenta.ReadOnly = true;
-            this.colTipoCuenta.Width = 150;
+            this.ColTipoCuenta.FillWeight = 130F;
+            this.ColTipoCuenta.HeaderText = "Tipo de Cuenta";
+            this.ColTipoCuenta.Name = "ColTipoCuenta";
+            this.ColTipoCuenta.ReadOnly = true;
+            this.ColTipoCuenta.Width = 130;
             // 
             // ColValor
             // 
@@ -136,27 +154,41 @@
             this.ColSaldo.Name = "ColSaldo";
             this.ColSaldo.ReadOnly = true;
             // 
-            // textBox2
+            // ColEditar
             // 
-            this.textBox2.Location = new System.Drawing.Point(206, 74);
-            this.textBox2.Multiline = true;
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(483, 46);
-            this.textBox2.TabIndex = 5;
+            this.ColEditar.HeaderText = "Editar";
+            this.ColEditar.Name = "ColEditar";
+            this.ColEditar.UseColumnTextForButtonValue = true;
+            this.ColEditar.Width = 70;
             // 
-            // textBox1
+            // ColEliminar
             // 
-            this.textBox1.Location = new System.Drawing.Point(206, 35);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(59, 20);
-            this.textBox1.TabIndex = 4;
+            this.ColEliminar.HeaderText = "Eliminar";
+            this.ColEliminar.Name = "ColEliminar";
+            this.ColEliminar.UseColumnTextForButtonValue = true;
+            this.ColEliminar.Width = 70;
             // 
-            // dateTimePicker1
+            // textBoxDescr
             // 
-            this.dateTimePicker1.Location = new System.Drawing.Point(489, 35);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(200, 20);
-            this.dateTimePicker1.TabIndex = 3;
+            this.textBoxDescr.Location = new System.Drawing.Point(206, 74);
+            this.textBoxDescr.Multiline = true;
+            this.textBoxDescr.Name = "textBoxDescr";
+            this.textBoxDescr.Size = new System.Drawing.Size(483, 46);
+            this.textBoxDescr.TabIndex = 5;
+            // 
+            // textBoxNumero
+            // 
+            this.textBoxNumero.Location = new System.Drawing.Point(206, 35);
+            this.textBoxNumero.Name = "textBoxNumero";
+            this.textBoxNumero.Size = new System.Drawing.Size(59, 20);
+            this.textBoxNumero.TabIndex = 4;
+            // 
+            // dateTimePickerFecha
+            // 
+            this.dateTimePickerFecha.Location = new System.Drawing.Point(489, 35);
+            this.dateTimePickerFecha.Name = "dateTimePickerFecha";
+            this.dateTimePickerFecha.Size = new System.Drawing.Size(200, 20);
+            this.dateTimePickerFecha.TabIndex = 3;
             // 
             // labelDesc
             // 
@@ -188,6 +220,16 @@
             this.labelFecha.TabIndex = 0;
             this.labelFecha.Text = "Fecha del asiento:";
             // 
+            // botonRefrescar
+            // 
+            this.botonRefrescar.Location = new System.Drawing.Point(25, 316);
+            this.botonRefrescar.Name = "botonRefrescar";
+            this.botonRefrescar.Size = new System.Drawing.Size(75, 23);
+            this.botonRefrescar.TabIndex = 10;
+            this.botonRefrescar.Text = "Refrescar";
+            this.botonRefrescar.UseVisualStyleBackColor = true;
+            this.botonRefrescar.Click += new System.EventHandler(this.botonRefrescar_Click);
+            // 
             // VerAsiento
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -199,27 +241,51 @@
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.VerAsiento_FormClosing);
             this.groupBoxAsiento.ResumeLayout(false);
             this.groupBoxAsiento.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridMovimientos)).EndInit();
             this.ResumeLayout(false);
 
         }
+        private void eventosClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.ColumnIndex == dataGridMovimientos.Columns["ColEditar"].Index)
+            {
+                int idmovimiento = int.Parse(dataGridMovimientos.Rows[e.RowIndex].Cells[0].Value.ToString());
+                Movimiento mov = Movimiento.TraerMovimientosporId(idmovimiento);
+                AgregarMovimiento nuevoMovi = new AgregarMovimiento(2, asiento, mov);
+                nuevoMovi.Visible = true;
+              
+            }
+            else if (e.ColumnIndex == dataGridMovimientos.Columns["ColEliminar"].Index)
+            {
+                int idmovimiento = int.Parse(dataGridMovimientos.Rows[e.RowIndex].Cells[0].Value.ToString());
+                Movimiento mov = Movimiento.TraerMovimientosporId(idmovimiento);
+                AgregarMovimiento nuevoMovi = new AgregarMovimiento(3, asiento, mov);
+                nuevoMovi.Visible = true;
+            }
+        }
+
+
 
         #endregion
 
         private System.Windows.Forms.GroupBox groupBoxAsiento;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.TextBox textBoxDescr;
+        private System.Windows.Forms.TextBox textBoxNumero;
+        private System.Windows.Forms.DateTimePicker dateTimePickerFecha;
         private System.Windows.Forms.Label labelDesc;
         private System.Windows.Forms.Label labelNumero;
         private System.Windows.Forms.Label labelFecha;
         private System.Windows.Forms.Button botonCancelar;
         private System.Windows.Forms.Button botonGuardar;
         private System.Windows.Forms.Button botonNuevo;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dataGridMovimientos;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ID;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColNombre;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colTipoCuenta;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColTipoCuenta;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColValor;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColSaldo;
+        private System.Windows.Forms.DataGridViewButtonColumn ColEditar;
+        private System.Windows.Forms.DataGridViewButtonColumn ColEliminar;
+        private Button botonRefrescar;
     }
 }

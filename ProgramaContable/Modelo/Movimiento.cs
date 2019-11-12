@@ -8,7 +8,7 @@ using System.Windows.Forms;
 
 namespace ProgramaContable.Modelo
 {
-    class Movimiento
+    public class Movimiento
     {
         private int id;
         private Asiento asiento;
@@ -34,10 +34,59 @@ namespace ProgramaContable.Modelo
         {
 
         }
-        public static void CrearMovimiento(int idasiento, int idcuenta, int valor, bool debe)
+        public static Movimiento TraerMovimientosporId(int idmovimiento)
+        {
+            List<Movimiento> listademovimientos = new List<Movimiento>();
+            string connectionString = "datasource=127.0.0.1;port=3306;username=root;password=;database=librodiario;";
+            string query = "SELECT * FROM movimiento m, cuentas c, tipocuenta t WHERE (m.cuenta_id = c.id_cuenta AND c.tipocuenta_id = t.id_tipocuenta AND m.id_movimiento ="+idmovimiento+")";
+
+            MySqlConnection databaseConnection = new MySqlConnection(connectionString);
+            MySqlCommand commandDatabase = new MySqlCommand(query, databaseConnection);
+            commandDatabase.CommandTimeout = 60;
+            MySqlDataReader reader;
+
+            try
+            {
+                databaseConnection.Open();
+                reader = commandDatabase.ExecuteReader();
+
+                if (reader.HasRows)
+                {
+                    while (reader.Read())
+                    {
+                        Movimiento movimiento = new Movimiento();
+                        Asiento asiento = new Asiento();
+                        Cuenta cuenta = new Cuenta();
+
+                        movimiento.Id = reader.GetInt32(0);
+                        asiento.Id = reader.GetInt32(1);
+                        cuenta.IdCuenta = reader.GetInt32(2);
+                        movimiento.Valor = reader.GetFloat(3);
+                        movimiento.Debe_haber = reader.GetBoolean(4);
+                        cuenta.NombreCuenta = reader.GetString(6);
+                        cuenta.Tipocuenta = new TipodeCuenta();
+                        cuenta.Tipocuenta.Id = reader.GetInt32(7);
+                        cuenta.Tipocuenta.DescripcionTipo = reader.GetString(9);
+                        movimiento.Asiento = asiento;
+                        movimiento.Cuenta = cuenta;
+                       
+                        listademovimientos.Add(movimiento);
+                    }
+                }
+
+                databaseConnection.Close();
+                return listademovimientos.First() ;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                return listademovimientos.First();
+            }
+        }
+        public static void CrearMovimiento(Movimiento mov)
         {
             string connectionString = "datasource=127.0.0.1;port=3306;username=root;password=;database=librodiario;";
-            string query = "INSERT INTO movimiento(asiento_id,cuenta_id,valor,debeohaber) VALUES(" + idasiento + ", " + idcuenta + ", " + valor + ", " + debe + ")";
+            string query = "INSERT INTO movimiento(asiento_id,cuenta_id,valor,debeohaber) VALUES(" + mov.Asiento.Id + ", " + mov.Cuenta.IdCuenta + ", " + mov.Valor + ", " + mov.Debe_haber + ")";
 
             MySqlConnection databaseConnection = new MySqlConnection(connectionString);
             MySqlCommand commandDatabase = new MySqlCommand(query, databaseConnection);
@@ -55,11 +104,11 @@ namespace ProgramaContable.Modelo
                 MessageBox.Show(ex.Message);
             }
         }
-        public static void UpdateMovimiento(int idmovimiento, int idasiento, int idcuenta, int valor, bool debe)
+        public static void UpdateMovimiento(Movimiento mov)
         {
             string connectionString = "datasource=127.0.0.1;port=3306;username=root;password=;database=librodiario;";
             string query =
-            "UPDATE movimiento SET asiento_id=" + idasiento + ", cuenta_id=" + idcuenta + ", valor=" + valor + ", debeohaber =" + debe + " WHERE id_movimiento = " + idmovimiento;
+            "UPDATE movimiento SET asiento_id=" + mov.Asiento.Id + ", cuenta_id=" + mov.Cuenta.IdCuenta + ", valor=" + mov.Valor + ", debeohaber =" + mov.Debe_haber + " WHERE id_movimiento = " + mov.Id;
             MySqlConnection databaseConnection = new MySqlConnection(connectionString);
             MySqlCommand commandDatabase = new MySqlCommand(query, databaseConnection);
             commandDatabase.CommandTimeout = 60;
@@ -279,7 +328,7 @@ namespace ProgramaContable.Modelo
             return resultado;
         }
 
-        public static void borrarMovimiento(int idmovimiento)
+        public static void EliminarMovimiento(int idmovimiento)
         {
             string connectionString = "datasource=127.0.0.1;port=3306;username=root;password=;database=librodiario;";
             string query = "DELETE FROM movimiento WHERE id_movimiento = " + idmovimiento;

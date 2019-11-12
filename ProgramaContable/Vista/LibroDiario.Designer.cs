@@ -1,4 +1,8 @@
-﻿namespace ProgramaContable.Vista
+﻿using ProgramaContable.Modelo;
+using System;
+using System.Windows.Forms;
+
+namespace ProgramaContable.Vista
 {
     partial class LibroDiario
     {
@@ -29,40 +33,42 @@
         private void InitializeComponent()
         {
             this.groupBoxBusqueda = new System.Windows.Forms.GroupBox();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.dateTimePickerFecha = new System.Windows.Forms.DateTimePicker();
             this.BotonTodosMes = new System.Windows.Forms.Button();
             this.BotonFechaS = new System.Windows.Forms.Button();
             this.groupBoxAsientos = new System.Windows.Forms.GroupBox();
             this.botonVolver = new System.Windows.Forms.Button();
             this.botonAgregar = new System.Windows.Forms.Button();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dataGridAsientos = new System.Windows.Forms.DataGridView();
+            this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColNAsiento = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColFecha = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColDescripcion = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColVer = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.ColEditar = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.ColEliminar = new System.Windows.Forms.DataGridViewButtonColumn();
             this.groupBoxBusqueda.SuspendLayout();
             this.groupBoxAsientos.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridAsientos)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBoxBusqueda
             // 
-            this.groupBoxBusqueda.Controls.Add(this.dateTimePicker1);
+            this.groupBoxBusqueda.Controls.Add(this.dateTimePickerFecha);
             this.groupBoxBusqueda.Controls.Add(this.BotonTodosMes);
             this.groupBoxBusqueda.Controls.Add(this.BotonFechaS);
             this.groupBoxBusqueda.Location = new System.Drawing.Point(13, 26);
             this.groupBoxBusqueda.Name = "groupBoxBusqueda";
-            this.groupBoxBusqueda.Size = new System.Drawing.Size(750, 65);
+            this.groupBoxBusqueda.Size = new System.Drawing.Size(776, 65);
             this.groupBoxBusqueda.TabIndex = 0;
             this.groupBoxBusqueda.TabStop = false;
             this.groupBoxBusqueda.Text = "Busqueda";
             // 
-            // dateTimePicker1
+            // dateTimePickerFecha
             // 
-            this.dateTimePicker1.Location = new System.Drawing.Point(56, 20);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(200, 20);
-            this.dateTimePicker1.TabIndex = 6;
+            this.dateTimePickerFecha.Location = new System.Drawing.Point(56, 20);
+            this.dateTimePickerFecha.Name = "dateTimePickerFecha";
+            this.dateTimePickerFecha.Size = new System.Drawing.Size(200, 20);
+            this.dateTimePickerFecha.TabIndex = 6;
             // 
             // BotonTodosMes
             // 
@@ -72,6 +78,7 @@
             this.BotonTodosMes.TabIndex = 5;
             this.BotonTodosMes.Text = "Mostrar Todo el Mes";
             this.BotonTodosMes.UseVisualStyleBackColor = true;
+            this.BotonTodosMes.Click += new System.EventHandler(this.BotonTodosMes_Click);
             // 
             // BotonFechaS
             // 
@@ -87,10 +94,10 @@
             // 
             this.groupBoxAsientos.Controls.Add(this.botonVolver);
             this.groupBoxAsientos.Controls.Add(this.botonAgregar);
-            this.groupBoxAsientos.Controls.Add(this.dataGridView1);
+            this.groupBoxAsientos.Controls.Add(this.dataGridAsientos);
             this.groupBoxAsientos.Location = new System.Drawing.Point(13, 98);
             this.groupBoxAsientos.Name = "groupBoxAsientos";
-            this.groupBoxAsientos.Size = new System.Drawing.Size(750, 289);
+            this.groupBoxAsientos.Size = new System.Drawing.Size(776, 289);
             this.groupBoxAsientos.TabIndex = 1;
             this.groupBoxAsientos.TabStop = false;
             this.groupBoxAsientos.Text = "Asientos Contables";
@@ -115,18 +122,27 @@
             this.botonAgregar.UseVisualStyleBackColor = true;
             this.botonAgregar.Click += new System.EventHandler(this.botonAgregar_Click);
             // 
-            // dataGridView1
+            // dataGridAsientos
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataGridAsientos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridAsientos.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.ID,
             this.ColNAsiento,
             this.ColFecha,
             this.ColDescripcion,
-            this.ColVer});
-            this.dataGridView1.Location = new System.Drawing.Point(17, 19);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(713, 192);
-            this.dataGridView1.TabIndex = 0;
+            this.ColEditar,
+            this.ColEliminar});
+            this.dataGridAsientos.Location = new System.Drawing.Point(17, 19);
+            this.dataGridAsientos.Name = "dataGridAsientos";
+            this.dataGridAsientos.Size = new System.Drawing.Size(743, 192);
+            this.dataGridAsientos.TabIndex = 0;
+            this.dataGridAsientos.CellClick += eventosClick;
+            // 
+            // ID
+            // 
+            this.ID.HeaderText = "ID";
+            this.ID.Name = "ID";
+            this.ID.Visible = false;
             // 
             // ColNAsiento
             // 
@@ -150,46 +166,80 @@
             this.ColDescripcion.ReadOnly = true;
             this.ColDescripcion.Width = 400;
             // 
-            // ColVer
+            // ColEditar
             // 
-            this.ColVer.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.ColVer.HeaderText = "Ver";
-            this.ColVer.Name = "ColVer";
-            this.ColVer.ReadOnly = true;
-            this.ColVer.Text = "Ver";
-            this.ColVer.UseColumnTextForButtonValue = true;
+            this.ColEditar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.ColEditar.HeaderText = "Editar";
+            this.ColEditar.Name = "ColEditar";
+            this.ColEditar.ReadOnly = true;
+            this.ColEditar.Text = "Editar";
+            this.ColEditar.UseColumnTextForButtonValue = true;
+            this.ColEditar.Width = 70;
+            // 
+            // ColEliminar
+            // 
+            this.ColEliminar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.ColEliminar.HeaderText = "Eliminar";
+            this.ColEliminar.Name = "ColEliminar";
+            this.ColEliminar.ReadOnly = true;
+            this.ColEliminar.Text = "Eliminar";
+            this.ColEliminar.UseColumnTextForButtonValue = true;
+            this.ColEliminar.Width = 70;
             // 
             // LibroDiario
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(780, 400);
+            this.ClientSize = new System.Drawing.Size(799, 400);
             this.Controls.Add(this.groupBoxAsientos);
             this.Controls.Add(this.groupBoxBusqueda);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
             this.Name = "LibroDiario";
             this.Text = "Ver Libro Diario";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.LibroDiario_FormClosing);
+            this.Load += new System.EventHandler(this.LibroDiario_Load);
             this.groupBoxBusqueda.ResumeLayout(false);
             this.groupBoxAsientos.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridAsientos)).EndInit();
             this.ResumeLayout(false);
 
         }
+
+        private void eventosClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.ColumnIndex == dataGridAsientos.Columns["ColEditar"].Index)
+            {
+                int idasiento = int.Parse(dataGridAsientos.Rows[e.RowIndex].Cells[0].Value.ToString());
+                VerAsiento vistaAgregar = new VerAsiento(true, idasiento, this);
+                vistaAgregar.Visible = true;
+                this.Visible = false;
+            }
+            else if (e.ColumnIndex == dataGridAsientos.Columns["ColEliminar"].Index)
+            {
+                int idasiento = int.Parse(dataGridAsientos.Rows[e.RowIndex].Cells[0].Value.ToString());
+                VerAsiento vistaAgregar = new VerAsiento(false, idasiento, this);
+                vistaAgregar.Visible = true;
+                this.Visible = false;
+            }
+        }
+
+
 
         #endregion
 
         private System.Windows.Forms.GroupBox groupBoxBusqueda;
         private System.Windows.Forms.Button BotonFechaS;
         private System.Windows.Forms.Button BotonTodosMes;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.DateTimePicker dateTimePickerFecha;
         private System.Windows.Forms.GroupBox groupBoxAsientos;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dataGridAsientos;
         private System.Windows.Forms.Button botonVolver;
         private System.Windows.Forms.Button botonAgregar;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ColNAsiento;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ColFecha;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ColDescripcion;
-        private System.Windows.Forms.DataGridViewButtonColumn ColVer;
+        private DataGridViewTextBoxColumn ID;
+        private DataGridViewTextBoxColumn ColNAsiento;
+        private DataGridViewTextBoxColumn ColFecha;
+        private DataGridViewTextBoxColumn ColDescripcion;
+        private DataGridViewButtonColumn ColEditar;
+        private DataGridViewButtonColumn ColEliminar;
     }
 }

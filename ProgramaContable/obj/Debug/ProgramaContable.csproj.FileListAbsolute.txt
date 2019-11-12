@@ -37,7 +37,6 @@ D:\Git Repository Windows\Libro-Diario\ProgramaContable\bin\Debug\MySql.Data.xml
 D:\Git Repository Windows\Libro-Diario\ProgramaContable\obj\Debug\ProgramaContable.csproj.CopyComplete
 D:\Git Repository Windows\Libro-Diario\ProgramaContable\obj\Debug\ProgramaContable.Vista.LibroDiario.resources
 D:\Git Repository Windows\Libro-Diario\ProgramaContable\obj\Debug\ProgramaContable.Vista.VerAsiento.resources
-D:\Git Repository Windows\Libro-Diario\ProgramaContable\obj\Debug\ProgramaContable.Vista.VerMovimiento.resources
 D:\Git Repository Windows\Libro-Diario\ProgramaContable\obj\Debug\ProgramaContable.Vista.LibroMayor.resources
 D:\Git Repository Windows\Libro-Diario\ProgramaContable\obj\Debug\ProgramaContable.Vista.VerLibroMayor.resources
 D:\Git Repository Windows\Libro-Diario\ProgramaContable\obj\Debug\ProgramaContable.csprojAssemblyReference.cache
@@ -79,3 +78,4 @@ C:\Users\AleMo\Desktop\Proyectos git\Libro-Diario\ProgramaContable\obj\Debug\Pro
 C:\Users\AleMo\Desktop\Proyectos git\Libro-Diario\ProgramaContable\obj\Debug\ProgramaContable.csproj.CopyComplete
 C:\Users\AleMo\Desktop\Proyectos git\Libro-Diario\ProgramaContable\obj\Debug\ProgramaContable.exe
 C:\Users\AleMo\Desktop\Proyectos git\Libro-Diario\ProgramaContable\obj\Debug\ProgramaContable.pdb
+D:\Git Repository Windows\Libro-Diario\ProgramaContable\obj\Debug\ProgramaContable.Vista.AgregarMovimiento.resources

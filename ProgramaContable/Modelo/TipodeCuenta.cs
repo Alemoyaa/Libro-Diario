@@ -8,7 +8,7 @@ using MySql.Data.MySqlClient;
 
 namespace ProgramaContable.Modelo
 {
-    class TipodeCuenta
+    public class TipodeCuenta
     {
         private int id;
         private string descripcionTipo;

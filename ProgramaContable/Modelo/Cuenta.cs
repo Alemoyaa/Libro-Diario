@@ -8,7 +8,7 @@ using MySql.Data.MySqlClient;
 
 namespace ProgramaContable.Modelo
 {
-    class Cuenta
+    public class Cuenta
     {
         private int idCuenta;
         private String nombreCuenta;
