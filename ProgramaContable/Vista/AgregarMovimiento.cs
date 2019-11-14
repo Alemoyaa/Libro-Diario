@@ -32,10 +32,8 @@ namespace ProgramaContable.Vista
             else if(op == 2){
                 groupBoxMovimiento.Text = "Editar Movimiento";
                 this.Text = "Editar Movimiento";
-                ComboBoxItem com = new ComboBoxItem(mov.Cuenta.Tipocuenta.DescripcionTipo, mov.Cuenta.Tipocuenta.Id);
-                comboBoxTipo.SelectedItem = com;
-                ComboBoxItem com2 = new ComboBoxItem(mov.Cuenta.NombreCuenta, mov.Cuenta.IdCuenta);
-                comboBoxNombre.SelectedItem = com2;
+                comboBoxTipo.SelectedIndex = comboBoxTipo.FindStringExact(mov.Cuenta.Tipocuenta.DescripcionTipo);
+                comboBoxNombre.SelectedIndex = comboBoxNombre.FindStringExact(mov.Cuenta.NombreCuenta);
                 textBox1.Text = mov.Valor.ToString();
                 if (!mov.Debe_haber)
                 {
@@ -56,17 +54,11 @@ namespace ProgramaContable.Vista
                     radioButtonHaber.Select();
                 }
             }
-            
-          
-            
-            
         }
-
         private void botonCancelar_Click(object sender, EventArgs e)
         {
             this.Dispose();
         }
-
         private void botonGuardar_Click(object sender, EventArgs e)
         {
             if (opciones == 1)
@@ -105,8 +97,10 @@ namespace ProgramaContable.Vista
                     mov2.Debe_haber = Convert.ToBoolean(radioButtonDebe.Checked); //Guardo en true si es debe, false si es haber
                     mov2.Cuenta = new Cuenta();
                     mov2.Cuenta.IdCuenta = ((ComboBoxItem)comboBoxNombre.SelectedItem).HiddenValue;
+                    mov2.Cuenta.NombreCuenta = comboBoxNombre.SelectedItem.ToString();
                     mov2.Cuenta.Tipocuenta = new TipodeCuenta();
                     mov2.Cuenta.Tipocuenta.Id = ((ComboBoxItem)comboBoxTipo.SelectedItem).HiddenValue;
+                    mov2.Cuenta.Tipocuenta.DescripcionTipo = comboBoxTipo.SelectedItem.ToString();
                     Movimiento.UpdateMovimiento(mov2);
                     this.Dispose();
                 }

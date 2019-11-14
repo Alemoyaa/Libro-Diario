@@ -18,15 +18,18 @@ namespace ProgramaContable.Vista
         public Asiento asiento;
         public VerAsiento(Form vista)
         {
+            InitializeComponent();
             try { 
                 menuAnterior = vista;
                 opcionesGuardar = 1;
                 asiento = new Asiento();
                 asiento.Asiento_movimiento = new List<Movimiento>();
-                InitializeComponent();
                 groupBoxAsiento.Text = "Crear Asiento";
                 this.Text = "Crear Asiento";
-                
+                int numasiento = Asiento.ListarAsientos().Last().Numero_asiento + 1;
+                this.textBoxNumero.Text = numasiento.ToString();
+                this.textBoxNumero.Enabled = false;
+                this.dateTimePickerFecha.Enabled = false;
             }
             catch (Exception ex)
             {
@@ -45,12 +48,14 @@ namespace ProgramaContable.Vista
                     opcionesGuardar = 2;
                     asiento = Asiento.TraerAsientosporId(idasiento);
                     this.textBoxNumero.Text = asiento.Numero_asiento.ToString();
+                    this.textBoxNumero.Enabled = false;
                     this.textBoxDescr.Text = asiento.Descripcion_asiento.ToString();
                     string fecha = asiento.Fecha_asiento;
                     DateTime oDate = DateTime.Parse(fecha);
                     this.dateTimePickerFecha.Value = oDate;
                     groupBoxAsiento.Text = "Editar Asiento";
                     this.Text = "Editar Asiento";
+                    this.dateTimePickerFecha.Enabled = false;
                     LlenarDataGrip(asiento.Asiento_movimiento);
 
                 }

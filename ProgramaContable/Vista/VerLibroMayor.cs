@@ -172,10 +172,7 @@ namespace ProgramaContable.Vista
                         texto = texto + movequilibrado.Movimientosdebe.ElementAt(i).Valor.ToString() + "  |  " + movequilibrado.Movimientoshaber.ElementAt(i).Valor.ToString() + "\r\n";
                     }
                     texto = texto + "---------------\r\nTotal: " + total+ "\r\n\r\n";
-                }
-               
-
-                
+                } 
             }
             this.textBoxMayores.Text = texto;
             }

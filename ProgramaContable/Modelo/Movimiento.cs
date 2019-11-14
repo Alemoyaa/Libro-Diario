@@ -305,7 +305,8 @@ namespace ProgramaContable.Modelo
             if (mes == 12)
             {
                 resultado[0] = anio + "-" + mes + "-" + "01";
-                resultado[1] = anio+1 + "-01-01";
+                anio = anio + 1;
+                resultado[1] = anio + "-01-01";
             }
             else if(mes >=1 && mes < 9)
             {
