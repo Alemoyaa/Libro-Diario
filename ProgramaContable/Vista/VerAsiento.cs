@@ -151,61 +151,89 @@ namespace ProgramaContable.Vista
 
         private void botonGuardar_Click(object sender, EventArgs e)
         {
-            if (opcionesGuardar == 1)
+            if (asiento.Asiento_movimiento.Count >=2 && verPartidaDoble())
             {
-                DialogResult result = MessageBox.Show("¿Desea crear el asiento?", "Guardar Asiento", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2);
-                if (result == DialogResult.OK)
+                if (opcionesGuardar == 1)
                 {
-                    asiento.Numero_asiento = int.Parse(textBoxNumero.Text.ToString());
-                    asiento.Descripcion_asiento = textBoxDescr.Text.ToString();
-                    string fecha = dateTimePickerFecha.Value.ToString("yyyy-MM-dd");
-                    asiento.Fecha_asiento = fecha;
-                    int idasiento = Asiento.CrearAsiento(asiento);
+                    DialogResult result = MessageBox.Show("¿Desea crear el asiento?", "Guardar Asiento", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2);
+                    if (result == DialogResult.OK)
+                    {
+                        asiento.Numero_asiento = int.Parse(textBoxNumero.Text.ToString());
+                        asiento.Descripcion_asiento = textBoxDescr.Text.ToString();
+                        string fecha = dateTimePickerFecha.Value.ToString("yyyy-MM-dd");
+                        asiento.Fecha_asiento = fecha;
+                        int idasiento = Asiento.CrearAsiento(asiento);
 
-                    foreach (Movimiento item in asiento.Asiento_movimiento)
-                    {
-                       item.Asiento = asiento;
-                       item.Asiento.Id = idasiento;
-                       Movimiento.CrearMovimiento(item);
-                    }
-                }
-            }
-            else if (opcionesGuardar == 2)
-            {
-                DialogResult result = MessageBox.Show("¿Desea guardar los cambios realizados?", "Guardar Cambios", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2);
-                if (result == DialogResult.OK)
-                {
-                    asiento.Numero_asiento = int.Parse(textBoxNumero.Text.ToString());
-                    asiento.Descripcion_asiento = textBoxDescr.Text.ToString();
-                    string fecha = dateTimePickerFecha.Value.ToString("yyyy-MM-dd");
-                    asiento.Fecha_asiento = fecha;
-                    Asiento.UpdateAsiento(asiento);
-                    foreach (Movimiento item in asiento.Asiento_movimiento)
-                    {
-                        if (item.Id != 0)
-                        {
-                            Movimiento.UpdateMovimiento(item);
-                        }
-                        else
+                        foreach (Movimiento item in asiento.Asiento_movimiento)
                         {
                             item.Asiento = asiento;
+                            item.Asiento.Id = idasiento;
                             Movimiento.CrearMovimiento(item);
                         }
+                    }
+                }
+                else if (opcionesGuardar == 2)
+                {
+                    DialogResult result = MessageBox.Show("¿Desea guardar los cambios realizados?", "Guardar Cambios", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2);
+                    if (result == DialogResult.OK)
+                    {
+                        asiento.Numero_asiento = int.Parse(textBoxNumero.Text.ToString());
+                        asiento.Descripcion_asiento = textBoxDescr.Text.ToString();
+                        string fecha = dateTimePickerFecha.Value.ToString("yyyy-MM-dd");
+                        asiento.Fecha_asiento = fecha;
+                        Asiento.UpdateAsiento(asiento);
+                        foreach (Movimiento item in asiento.Asiento_movimiento)
+                        {
+                            if (item.Id != 0)
+                            {
+                                Movimiento.UpdateMovimiento(item);
+                            }
+                            else
+                            {
+                                item.Asiento = asiento;
+                                Movimiento.CrearMovimiento(item);
+                            }
+                        }
+                    }
+                }
+                else
+                {
+                    DialogResult result = MessageBox.Show("¿Esta seguro de eliminar el asiento?", "Eliminar Asiento", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2);
+                    if (result == DialogResult.OK)
+                    {
+                        Asiento.borrarAsiento(asiento.Id);
                     }
                 }
             }
             else
             {
-                DialogResult result = MessageBox.Show("¿Esta seguro de eliminar el asiento?","Eliminar Asiento",MessageBoxButtons.OKCancel, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2);
-                if (result == DialogResult.OK) {
-                    Asiento.borrarAsiento(asiento.Id);
-                }
+                MessageBox.Show("Datos incorrectos, no tienen 2 movimientos o no estan equilibrados", "Datos incorrectos", MessageBoxButtons.OK);
             }
+            
         }
 
         private void botonRefrescar_Click(object sender, EventArgs e)
         {
             RefrescarDataGrip(asiento.Asiento_movimiento);
+        }
+
+        private bool verPartidaDoble()
+        {
+            float saldodebe=0f, saldohaber=0f;
+            foreach (Movimiento item in asiento.Asiento_movimiento)
+            {
+                if (item.Debe_haber)
+                {
+                    saldodebe = saldodebe + item.Valor;
+                }
+                else
+                {
+                    saldohaber = saldohaber + item.Valor;
+                }
+
+            }
+            if (saldodebe == saldohaber) return true;
+            else return false;
         }
     }
 }
